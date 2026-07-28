@@ -11,11 +11,13 @@ This repo is the **landing page**.
 
 ```
 .
-├── server.js          # Tiny Express server that serves the static site
-├── public/
+├── server.js          # Tiny Express server for local preview
+├── docs/              # The published static site (GitHub Pages serves this)
 │   ├── index.html     # The landing page
 │   ├── styles.css     # Dark "arcane" visual theme
 │   ├── script.js      # Sets the booking link + footer year
+│   ├── wizard.svg     # The Conjure wizard mark
+│   ├── og.png         # Social share image
 │   └── favicon.svg
 ```
 
@@ -35,18 +37,19 @@ Use `npm run dev` for auto-reload while editing.
 ## The booking link
 
 Every "Book a call" button points to a single constant, `CALENDAR_URL`, defined
-at the top of `public/script.js`. It currently opens a pre-filled Google
+at the top of `docs/script.js`. It currently opens a pre-filled Google
 Calendar invite so a visitor can pick a time and book the meeting. Swap that
 value for any scheduling link (Cal.com, Calendly, etc.) and every button
 updates at once.
 
 ## Deploying
 
-The app is a standard Node web server and runs anywhere Node does
-(Render, Railway, Fly.io, a VPS, etc.):
+The site is fully static — the `docs/` folder is all that's served. It's
+published with **GitHub Pages** (Settings → Pages → Deploy from a branch →
+`/docs`), free and behind HTTPS. Any static host (Cloudflare Pages, Netlify)
+works too: point the output directory at `docs/`.
 
-- **Start command:** `npm start`
-- **Port:** reads `PORT` from the environment (defaults to `3000`)
+The Express server (`npm start`) is only for local preview.
 
 ---
 

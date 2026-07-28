@@ -1,8 +1,8 @@
 # ✦ Conjure
 
-**Websites for small businesses. Built by hand, fast.**
+**Websites for your business. Built by hand, fast.**
 
-Conjure designs and builds fast, mobile-ready websites for small businesses —
+Conjure designs and builds fast, mobile-ready websites for your business —
 and the only thing this landing page asks a visitor to do is book a call.
 
 This repo is the **landing page**.

@@ -1,26 +1,22 @@
 # ✦ Conjure
 
-**AI automations that feel like magic.**
+**Websites for small businesses. Built by hand, fast.**
 
-Conjure is a boutique AI automation studio. Businesses hand over their
-repetitive workflows — inbox triage, lead follow-up, reporting, data entry —
-and we build custom AI agents that run them, so teams spend their hours on the
-work only humans can do.
+Conjure designs and builds fast, mobile-ready websites for small businesses —
+and the only thing this landing page asks a visitor to do is book a call.
 
-This repo is the **launch landing page + working waitlist**.
+This repo is the **landing page**.
 
 ## What's inside
 
 ```
 .
-├── server.js          # Express server: serves the site + waitlist API
+├── server.js          # Tiny Express server that serves the static site
 ├── public/
-│   ├── index.html     # Landing page
-│   ├── styles.css     # Dark, "arcane" visual theme
-│   ├── script.js      # Waitlist form + live counter
+│   ├── index.html     # The landing page
+│   ├── styles.css     # Dark "arcane" visual theme
+│   ├── script.js      # Sets the booking link + footer year
 │   └── favicon.svg
-└── data/
-    └── waitlist.json  # Signups persist here (created at runtime, git-ignored)
 ```
 
 ## Run it locally
@@ -36,17 +32,11 @@ Then open <http://localhost:3000>.
 
 Use `npm run dev` for auto-reload while editing.
 
-## Waitlist API
+## The booking link
 
-| Method | Route            | Description                                  |
-| ------ | ---------------- | -------------------------------------------- |
-| `POST` | `/api/waitlist`  | Add a signup `{ name, email, useCase }`      |
-| `GET`  | `/api/stats`     | Public signup count for the live counter     |
-| `GET`  | `/healthz`       | Health check                                 |
-
-Signups are stored as JSON in `data/waitlist.json`. Emails are validated and
-de-duplicated. To export the list, just read that file (or wire the store to a
-database / CRM / email tool of your choice).
+Every "Book a call" button points to a single constant, `CALENDAR_URL`, defined
+at the top of `public/script.js`. Replace its placeholder value with your real
+scheduling link and every button updates at once.
 
 ## Deploying
 
@@ -55,15 +45,6 @@ The app is a standard Node web server and runs anywhere Node does
 
 - **Start command:** `npm start`
 - **Port:** reads `PORT` from the environment (defaults to `3000`)
-
-For persistent signups in production, mount a volume for `data/` or swap the
-JSON store in `server.js` for a database.
-
-## Roadmap
-
-- [ ] Email confirmation on signup
-- [ ] Admin view for the waitlist
-- [ ] Pipe signups into a CRM / email platform
 
 ---
 

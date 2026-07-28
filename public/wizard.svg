@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 224" fill="none" role="img" aria-label="Conjure wizard">
+  <defs>
+    <linearGradient id="cj-hat" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#7c5cff" />
+      <stop offset="1" stop-color="#a78bfa" />
+    </linearGradient>
+    <linearGradient id="cj-robe" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a78bfa" />
+      <stop offset="1" stop-color="#7c5cff" />
+    </linearGradient>
+  </defs>
+
+  <!-- Wand -->
+  <line x1="118" y1="152" x2="170" y2="90" stroke="#a49dc0" stroke-width="4" stroke-linecap="round" />
+  <!-- Star at the wand tip (the brand mark) -->
+  <path d="M170 76 l3 8.6 8.6 3 -8.6 3 -3 8.6 -3 -8.6 -8.6 -3 8.6 -3 z" fill="#f2c66b" />
+
+  <!-- Robe -->
+  <path d="M100 96 C 76 96 60 142 52 200 C 52 204 148 204 148 200 C 140 142 124 96 100 96 Z" fill="url(#cj-robe)" />
+  <!-- Robe fold -->
+  <path d="M100 150 L92 202 L108 202 Z" fill="#7c5cff" opacity="0.45" />
+
+  <!-- Beard -->
+  <path d="M78 80 C 80 126 100 160 100 160 C 100 160 120 126 122 80 C 110 90 90 90 78 80 Z" fill="#ece9f5" />
+
+  <!-- Face (shadowed under the brim) -->
+  <path d="M83 64 C 83 78 90 88 100 88 C 110 88 117 78 117 64 Z" fill="#0a0713" />
+  <circle cx="93" cy="74" r="2.3" fill="#ece9f5" />
+  <circle cx="107" cy="74" r="2.3" fill="#ece9f5" />
+
+  <!-- Hat -->
+  <path d="M100 10 C 95 10 71 52 65 68 C 65 72 135 72 135 68 C 129 52 105 10 100 10 Z" fill="url(#cj-hat)" />
+  <!-- Hat brim -->
+  <ellipse cx="100" cy="70" rx="45" ry="9" fill="#7c5cff" />
+  <!-- Star on the hat + tiny sparkles -->
+  <path d="M96 38 l2.4 6.8 6.8 2.4 -6.8 2.4 -2.4 6.8 -2.4 -6.8 -6.8 -2.4 6.8 -2.4 z" fill="#f2c66b" />
+  <circle cx="110" cy="54" r="1.6" fill="#ece9f5" opacity="0.8" />
+  <circle cx="88" cy="56" r="1.4" fill="#ece9f5" opacity="0.7" />
+  <circle cx="105" cy="26" r="1.3" fill="#ece9f5" opacity="0.7" />
+</svg>

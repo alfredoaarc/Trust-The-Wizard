@@ -180,6 +180,18 @@ section {
   padding-bottom: 80px;
 }
 
+.hero-wizard {
+  display: block;
+  width: 132px;
+  height: auto;
+  margin: 0 auto 24px;
+  filter: drop-shadow(0 10px 26px rgba(124, 92, 255, 0.45));
+}
+
+@media (max-width: 520px) {
+  .hero-wizard { width: 108px; }
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Conjure — AI automations that feel like magic</title>
+    <meta
+      name="description"
+      content="Conjure builds custom AI agents that run your busywork — inbox triage, lead follow-up, reporting, data entry — so your team does the work only humans can. Join the waitlist."
+    />
+    <meta property="og:title" content="Conjure — AI automations that feel like magic" />
+    <meta
+      property="og:description"
+      content="Custom AI agents that quietly run your busywork. Join the early-access waitlist."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="stars" aria-hidden="true"></div>
+
+    <header class="nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-name">Conjure</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#spells">What we automate</a>
+        <a class="nav-cta" href="#waitlist">Join waitlist</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero">
+        <p class="eyebrow"><span class="pulse"></span> Now enrolling early access</p>
+        <h1>
+          AI automations that feel like <span class="grad">magic</span>.
+        </h1>
+        <p class="lede">
+          Conjure builds custom AI agents that quietly run your busywork —
+          inbox triage, lead follow-up, reporting, data entry — so your team
+          spends its hours on the work only humans can do.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#waitlist">Get early access</a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+        <p class="trust">
+          <span id="counter-line">Join <strong id="count">—</strong> teams already on the list</span>
+          · No credit card · Cancel anytime
+        </p>
+      </section>
+
+      <!-- SPELLS / WHAT WE AUTOMATE -->
+      <section id="spells" class="spells">
+        <h2 class="section-title">What we conjure for you</h2>
+        <p class="section-sub">
+          Every automation is custom-built, monitored, and yours. A few of the
+          spells in our book:
+        </p>
+        <div class="grid">
+          <article class="card">
+            <div class="glyph">✉️</div>
+            <h3>Inbox &amp; support triage</h3>
+            <p>Agents read, tag, draft replies, and escalate what actually needs you — 24/7.</p>
+          </article>
+          <article class="card">
+            <div class="glyph">🎯</div>
+            <h3>Lead follow-up</h3>
+            <p>Enrich, qualify, and nurture every inbound lead the moment it lands.</p>
+          </article>
+          <article class="card">
+            <div class="glyph">📊</div>
+            <h3>Reports on autopilot</h3>
+            <p>Pull from your tools, crunch the numbers, and deliver the weekly digest for you.</p>
+          </article>
+          <article class="card">
+            <div class="glyph">🔗</div>
+            <h3>App-to-app glue</h3>
+            <p>Move data between the tools that don't talk — without brittle no-code spaghetti.</p>
+          </article>
+          <article class="card">
+            <div class="glyph">🗂️</div>
+            <h3>Data entry &amp; cleanup</h3>
+            <p>Structured extraction from PDFs, emails, and forms, straight into your systems.</p>
+          </article>
+          <article class="card">
+            <div class="glyph">🛡️</div>
+            <h3>Watched, not wild</h3>
+            <p>Human-in-the-loop guardrails and audit logs on every agent we ship.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how" class="how">
+        <h2 class="section-title">Trust the wizard — here's the trick</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">1</span>
+            <h3>Tell us the boring part</h3>
+            <p>A 30-minute call. We find the repetitive work eating your team's week.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">2</span>
+            <h3>We build the agent</h3>
+            <p>A custom AI workflow wired into your tools, tested against your real data.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">3</span>
+            <h3>It runs. You review.</h3>
+            <p>The agent works around the clock. You get the results and stay in control.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- WAITLIST -->
+      <section id="waitlist" class="waitlist">
+        <div class="waitlist-card">
+          <h2>Get early access</h2>
+          <p class="waitlist-sub">
+            We're onboarding a small first cohort. Tell us what you'd love to
+            automate and we'll reach out with your slot.
+          </p>
+
+          <form id="waitlist-form" novalidate>
+            <div class="field-row">
+              <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@company.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <input
+              type="text"
+              id="useCase"
+              name="useCase"
+              placeholder="What would you automate first? (optional)"
+              maxlength="500"
+            />
+            <button type="submit" class="btn btn-primary btn-block">
+              <span class="btn-label">Join the waitlist</span>
+            </button>
+            <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="success" id="success" hidden>
+            <div class="success-glyph">✦</div>
+            <h3>You're on the list.</h3>
+            <p id="success-detail">We'll be in touch soon. Keep an eye on your inbox.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">✦</span> Conjure
+      </div>
+      <p>AI automations that feel like magic.</p>
+      <p class="fine">© <span id="year"></span> Conjure. Built for teams tired of busywork.</p>
+    </footer>
+
+    <script src="/script.js"></script>
+  </body>
+</html>

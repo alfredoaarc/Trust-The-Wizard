@@ -1,0 +1,18 @@
+{
+  "name": "conjure",
+  "version": "1.0.0",
+  "description": "Conjure — AI automations that feel like magic. Landing page + waitlist.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "license": "MIT"
+}

@@ -1,6 +1,10 @@
-// Point every "Book a call" button at your scheduling link.
-// Replace the placeholder below with your real booking URL (Cal.com, Calendly, etc.).
-const CALENDAR_URL = "https://cal.com/REPLACE-WITH-YOUR-LINK";
+// Every "Book a call" button opens a pre-filled Google Calendar invite
+// addressed to Conjure, so a visitor can pick a time and book the meeting.
+const CALENDAR_URL =
+  "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+  "&text=Website%20intro%20call%20with%20Conjure" +
+  "&details=A%20quick%2015-minute%20call%20about%20your%20website." +
+  "&add=alfredoaarc11%40gmail.com";
 
 for (const el of document.querySelectorAll("a.cta")) {
   el.href = CALENDAR_URL;

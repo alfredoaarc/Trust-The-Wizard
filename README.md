@@ -35,8 +35,10 @@ Use `npm run dev` for auto-reload while editing.
 ## The booking link
 
 Every "Book a call" button points to a single constant, `CALENDAR_URL`, defined
-at the top of `public/script.js`. Replace its placeholder value with your real
-scheduling link and every button updates at once.
+at the top of `public/script.js`. It currently opens a pre-filled Google
+Calendar invite so a visitor can pick a time and book the meeting. Swap that
+value for any scheduling link (Cal.com, Calendly, etc.) and every button
+updates at once.
 
 ## Deploying
 

@@ -26,7 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=2" />
   </head>
   <body>
     <div class="aurora" aria-hidden="true"></div>
@@ -217,13 +217,7 @@
         <!-- Full example: a care-home site (its own warm brand) -->
         <div class="showcase">
           <p class="showcase-label">A full example we built — an entire care-home site. Take a look inside.</p>
-          <a
-            class="demo-frame-link"
-            href="https://alfredoaarc.github.io/golden-days/"
-            target="_blank"
-            rel="noopener"
-            aria-label="Open the full Golden Days example site in a new tab"
-          >
+          <div class="demo-frame-wrap">
           <div class="browser demo-frame">
             <div class="browser-bar" aria-hidden="true">
               <span></span><span></span><span></span>
@@ -290,11 +284,19 @@
                 <span class="ds-quote-by">— María, daughter of a resident</span>
               </blockquote>
             </div>
-            <span class="demo-open" aria-hidden="true">Open the live example ↗</span>
           </div>
+          <a
+            class="demo-overlay"
+            href="https://alfredoaarc.github.io/golden-days/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open the full Golden Days example site in a new tab"
+          >
+            <span class="demo-open" aria-hidden="true">Open the live example ↗</span>
           </a>
+          </div>
           <p class="showcase-explore">
-            <a href="https://alfredoaarc.github.io/golden-days/" target="_blank" rel="noopener">Explore the full example <span aria-hidden="true">↗</span></a>
+            <a class="explore-btn" href="https://alfredoaarc.github.io/golden-days/" target="_blank" rel="noopener">Explore the full example <span aria-hidden="true">↗</span></a>
           </p>
           <div class="showcase-cta">
             <a class="btn btn-primary cta" href="#">Book a call</a>
@@ -328,6 +330,6 @@
       <p class="fine">© <span id="year"></span> Conjure. Trust the wizard.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
   </body>
 </html>

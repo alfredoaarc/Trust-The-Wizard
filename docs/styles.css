@@ -819,8 +819,7 @@ section {
   .ds-hero { grid-template-columns: 1fr; }
   .ds-hero-photo { aspect-ratio: 16 / 9; }
   .ds-features { grid-template-columns: repeat(2, 1fr); }
-  .ds-links a,
-  .ds-phone { display: none; }
+  .ds-links > span:not(.ds-btn) { display: none; }
   .ds-title { font-size: 1.6rem; }
 }
 

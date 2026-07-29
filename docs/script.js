@@ -24,3 +24,29 @@ for (const el of document.querySelectorAll("a.mailto")) {
 
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// --- Motion: mark JS on (so reveals only hide when JS can run) ---
+document.documentElement.classList.add("js");
+
+// --- Reveal on scroll (transform/opacity only, no dependencies) ---
+const revealEls = document.querySelectorAll(
+  ".section-title, .section-sub, .card, .step, .panel, .compare, .showcase"
+);
+revealEls.forEach((el) => el.classList.add("reveal"));
+
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.classList.add("in");
+          obs.unobserve(en.target);
+        }
+      });
+    },
+    { rootMargin: "0px 0px -8% 0px", threshold: 0.04 }
+  );
+  revealEls.forEach((el) => io.observe(el));
+} else {
+  revealEls.forEach((el) => el.classList.add("in"));
+}

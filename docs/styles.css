@@ -134,6 +134,23 @@ section {
   filter: drop-shadow(0 0 8px rgba(242, 198, 107, 0.6));
 }
 
+.brand-wand {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  vertical-align: -5px;
+  filter: drop-shadow(0 0 8px rgba(242, 198, 107, 0.55));
+  transition: transform 0.25s ease;
+}
+
+.brand:hover .brand-wand {
+  transform: rotate(-14deg) scale(1.06);
+}
+
+.footer-brand .brand-wand {
+  margin-right: 4px;
+}
+
 .brand-name {
   font-family: "Fraunces", serif;
   font-size: 1.3rem;
@@ -452,7 +469,7 @@ section {
   background: rgba(255, 255, 255, 0.03);
 }
 
-.browser-bar span {
+.browser-bar span:not(.url-chip) {
   width: 9px;
   height: 9px;
   border-radius: 50%;

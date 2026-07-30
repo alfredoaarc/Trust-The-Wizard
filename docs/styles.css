@@ -801,6 +801,16 @@ section {
   display: block;
 }
 
+/* Real Golden Days hero photo, layered over the illustration (its fallback) */
+.ds-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .ds-photo-chip {
   position: absolute;
   bottom: 12px;

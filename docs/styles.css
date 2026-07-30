@@ -986,8 +986,23 @@ section {
   border-radius: 6px;
   transition: color 0.2s ease;
 }
+.lang-switch a.lang-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
 .lang-switch a.lang-link:hover { color: var(--ink); }
 .lang-switch a.lang-link.is-active { color: var(--ink); font-weight: 700; }
+
+/* Inline SVG flags render the same on every OS (emoji flags don't on Windows) */
+.lang-flag {
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+  flex: 0 0 auto;
+}
 
 /* Footer contact email */
 .footer-contact { margin: 6px 0; }

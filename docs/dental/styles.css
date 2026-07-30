@@ -195,6 +195,7 @@ summary:focus-visible {
 
 .hero-photo {
   width: 100%;
+  height: auto; /* el atributo height del <img> no debe fijar la altura: manda aspect-ratio */
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 20px;
@@ -696,9 +697,12 @@ summary:focus-visible {
 }
 
 @media (max-width: 680px) {
-  .hero { grid-template-columns: 1fr; padding-top: 28px; }
+  .hero { grid-template-columns: 1fr; padding-top: 22px; gap: 20px; }
   .hero-media { order: -1; }
-  .hero-photo { aspect-ratio: 16 / 10; }
+  /* En móvil la foto pasa a banda panorámica: presenta la clínica sin
+     comerse la pantalla — el titular y los CTAs entran sin hacer scroll */
+  .hero-photo { aspect-ratio: 21 / 9; border-radius: 16px; }
+  .photo-chip { bottom: 10px; left: 10px; padding: 4px 11px; font-size: 0.72rem; }
   .metrics { grid-template-columns: repeat(2, 1fr); }
   .treat-grid, .people-grid, .reviews-grid { grid-template-columns: 1fr; }
   .fields { grid-template-columns: 1fr; }

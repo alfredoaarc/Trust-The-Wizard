@@ -1,16 +1,29 @@
-// Every "Book a call" button opens a pre-filled Google Calendar invite
-// addressed to Conjure, so a visitor can pick a time and book the meeting.
+// This page's language ("/" is Spanish, "/en/" is English).
+const IS_ES = (document.documentElement.lang || "").toLowerCase().indexOf("es") === 0;
+
+// "Book a call" / "Reserva 15 minutos" buttons open a pre-filled Google Calendar invite.
 const CALENDAR_URL =
   "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-  "&text=Website%20intro%20call%20with%20Conjure" +
-  "&details=A%20quick%2015-minute%20call%20about%20your%20website." +
-  "&add=alfredoaarc11%40gmail.com";
+  "&text=" +
+  encodeURIComponent(IS_ES ? "Llamada de 15 min sobre tu web" : "Website intro call with Conjure") +
+  "&details=" +
+  encodeURIComponent(
+    IS_ES ? "Una llamada de 15 minutos para hablar de tu web." : "A quick 15-minute call about your website."
+  ) +
+  "&add=" +
+  encodeURIComponent("hello@trustthewizard.com");
 
 // Fallback for visitors who don't use Google Calendar: a plain email.
 const MAILTO_URL =
-  "mailto:alfredoaarc11@gmail.com" +
-  "?subject=Website%20enquiry%20for%20Conjure" +
-  "&body=Hi%2C%20I%27m%20interested%20in%20a%20new%20website.%20Here%27s%20a%20bit%20about%20my%20business%3A%20";
+  "mailto:hello@trustthewizard.com" +
+  "?subject=" +
+  encodeURIComponent(IS_ES ? "Quiero una web para mi negocio" : "Website enquiry for Conjure") +
+  "&body=" +
+  encodeURIComponent(
+    IS_ES
+      ? "Hola, me interesa una web nueva. Te cuento un poco de mi negocio: "
+      : "Hi, I'm interested in a new website. Here's a bit about my business: "
+  );
 
 for (const el of document.querySelectorAll("a.cta")) {
   el.href = CALENDAR_URL;
@@ -20,6 +33,13 @@ for (const el of document.querySelectorAll("a.cta")) {
 
 for (const el of document.querySelectorAll("a.mailto")) {
   el.href = MAILTO_URL;
+}
+
+// Language switch: remember the choice so the first-visit auto-redirect respects it.
+for (const el of document.querySelectorAll("a.lang-link")) {
+  el.addEventListener("click", function () {
+    document.cookie = "ttw_lang=" + this.dataset.lang + ";path=/;max-age=31536000";
+  });
 }
 
 // Footer year

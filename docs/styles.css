@@ -187,7 +187,7 @@ section {
 }
 
 @media (max-width: 680px) {
-  .nav-links a:not(.nav-cta) { display: none; }
+  .nav-links a:not(.nav-cta):not(.lang-link) { display: none; }
 }
 
 /* Hero */
@@ -956,8 +956,8 @@ section {
 .btn:active { transform: translateY(0) scale(0.97); }
 
 /* Animated underline on nav links */
-.nav-links a:not(.nav-cta) { position: relative; }
-.nav-links a:not(.nav-cta)::after {
+.nav-links a:not(.nav-cta):not(.lang-link) { position: relative; }
+.nav-links a:not(.nav-cta):not(.lang-link)::after {
   content: "";
   position: absolute;
   left: 0;
@@ -969,7 +969,30 @@ section {
   transform-origin: left;
   transition: transform 0.25s ease;
 }
-.nav-links a:not(.nav-cta):hover::after { transform: scaleX(1); }
+.nav-links a:not(.nav-cta):not(.lang-link):hover::after { transform: scaleX(1); }
+
+/* Language switch (ES / EN) — small, visible on mobile too */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+.lang-switch a.lang-link {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 2px 5px;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+}
+.lang-switch a.lang-link:hover { color: var(--ink); }
+.lang-switch a.lang-link.is-active { color: var(--ink); font-weight: 700; }
+
+/* Footer contact email */
+.footer-contact { margin: 6px 0; }
+.footer-contact a { color: var(--violet); text-decoration: none; }
+.footer-contact a:hover { color: var(--ink); text-decoration: underline; }
 
 /* Respect users who prefer less motion */
 @media (prefers-reduced-motion: reduce) {

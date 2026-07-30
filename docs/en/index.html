@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Redirección de idioma en la primera visita: navegadores no-españoles → "/en/". Nunca a bots, nunca tras elegir. -->
+    <!-- First-visit language redirect: Spanish browsers → "/". Never bots, never after a choice. -->
     <script>
       (function () {
         try {
@@ -13,31 +13,31 @@
           var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
           var isEs = langs.some(function (l) { return /^es\b/i.test(l); });
           document.cookie = "ttw_lang=" + (isEs ? "es" : "en") + ";path=/;max-age=31536000";
-          if (!isEs) location.replace("/en/");
+          if (isEs) location.replace("/");
         } catch (e) {}
       })();
     </script>
-    <title>Conjure — Webs que te consiguen más clientes</title>
+    <title>Conjure — Websites for your business</title>
     <meta
       name="description"
-      content="Diseño y construyo a mano webs rápidas y pensadas para el móvil, para tu negocio. Reserva 15 minutos."
+      content="Conjure designs and builds fast, mobile-ready websites for your business. Book a 15-minute call to talk about yours."
     />
-    <link rel="canonical" href="https://trustthewizard.com/" />
+    <link rel="canonical" href="https://trustthewizard.com/en/" />
     <link rel="alternate" hreflang="es-ES" href="https://trustthewizard.com/" />
     <link rel="alternate" hreflang="en" href="https://trustthewizard.com/en/" />
     <link rel="alternate" hreflang="x-default" href="https://trustthewizard.com/en/" />
-    <meta property="og:title" content="Conjure — Webs que te consiguen más clientes" />
+    <meta property="og:title" content="Conjure — Websites for your business" />
     <meta
       property="og:description"
-      content="Webs rápidas y hechas a mano para tu negocio. Reserva 15 minutos."
+      content="Fast, mobile-ready websites for your business, built by hand. Book a 15-minute call."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://trustthewizard.com/" />
-    <meta property="og:image" content="https://trustthewizard.com/og-es.png" />
+    <meta property="og:url" content="https://trustthewizard.com/en/" />
+    <meta property="og:image" content="https://trustthewizard.com/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://trustthewizard.com/og-es.png" />
+    <meta name="twitter:image" content="https://trustthewizard.com/og.png" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,19 +52,19 @@
     <div class="stars" aria-hidden="true"></div>
 
     <header class="nav">
-      <a class="brand" href="#top">
+      <a class="brand" href="/en/#top">
         <svg class="brand-wand" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5 L13.6 10.4" stroke="#a78bfa" stroke-width="2.3" stroke-linecap="round"/><circle cx="4.5" cy="19.5" r="1.5" fill="#a78bfa"/><path d="M16.7 4.6 l1.2 3.25 3.25 1.2 -3.25 1.2 -1.2 3.25 -1.2 -3.25 -3.25 -1.2 3.25 -1.2 z" fill="#f2c66b"/><circle cx="9" cy="7.4" r="0.95" fill="#f2c66b" opacity="0.85"/></svg>
         <span class="brand-name">Conjure</span>
       </a>
       <nav class="nav-links">
-        <a href="#deliverables">Qué incluye</a>
-        <a href="#how">Cómo funciona</a>
-        <div class="lang-switch" role="group" aria-label="Idioma">
-          <a class="lang-link is-active" data-lang="es" hreflang="es-ES" href="/" aria-current="true">ES</a>
+        <a href="#deliverables">What you get</a>
+        <a href="#how">How it works</a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <a class="lang-link" data-lang="es" hreflang="es-ES" href="/">ES</a>
           <span aria-hidden="true">·</span>
-          <a class="lang-link" data-lang="en" hreflang="en" href="/en/">EN</a>
+          <a class="lang-link is-active" data-lang="en" hreflang="en" href="/en/" aria-current="true">EN</a>
         </div>
-        <a class="nav-cta cta" href="#">Reserva 15 minutos</a>
+        <a class="nav-cta cta" href="#">Book a call</a>
       </nav>
     </header>
 
@@ -74,185 +74,185 @@
         <div class="hero-wizard-wrap">
           <img class="hero-wizard" src="/wizard.svg" alt="" aria-hidden="true" width="132" height="148" />
         </div>
-        <p class="eyebrow"><span class="brand-mark" aria-hidden="true">✦</span> Confía en el mago</p>
+        <p class="eyebrow"><span class="brand-mark" aria-hidden="true">✦</span> Trust the wizard</p>
         <h1>
-          Webs que te consiguen más <span class="grad">clientes</span>.
+          Websites that win you more <span class="grad">customers</span>.
         </h1>
         <p class="lede">
-          Diseño y construyo a mano webs rápidas y pensadas para el móvil, para tu negocio.
+          I design and build fast, mobile-ready sites for your business, by hand.
         </p>
         <div class="hero-cta">
-          <a class="btn btn-primary cta" href="#">Reserva 15 minutos</a>
+          <a class="btn btn-primary cta" href="#">Book a call</a>
         </div>
-        <p class="micro">15 minutos, sin compromiso. Hablamos de tu web y de lo que necesita.</p>
-        <p class="fallback">O <a class="mailto" href="mailto:hello@trustthewizard.com">escríbeme un email</a>.</p>
+        <p class="micro">15 minutes, no pressure. We talk about your site and what it needs.</p>
+        <p class="fallback">Don't use Google Calendar? <a class="mailto" href="mailto:hello@trustthewizard.com">Email me instead</a>.</p>
       </section>
 
-      <!-- EL PROBLEMA -->
+      <!-- THE PROBLEM -->
       <section id="problem" class="block">
-        <h2 class="section-title">¿Tu web está jugando en tu contra?</h2>
+        <h2 class="section-title">Is your website working against you?</h2>
         <p class="section-sub">
-          La mayoría de webs de negocio espantan clientes sin que el dueño se entere. Así es cómo.
+          Most business websites quietly turn visitors away. Here's how.
         </p>
         <div class="grid">
           <article class="card">
             <div class="glyph">🐞</div>
-            <h3>Errores a la vista</h3>
-            <p>Enlaces rotos, textos de plantilla sin rellenar, páginas que dan error. El cliente lo ve y desconfía.</p>
+            <h3>Errors on show</h3>
+            <p>Broken links, unfilled template text, pages that throw errors. Visitors see it and lose trust.</p>
           </article>
           <article class="card">
             <div class="glyph">📧</div>
-            <h3>Un correo de Gmail</h3>
-            <p>Usar una dirección de Gmail o Hotmail en vez de una del negocio resta seriedad al momento.</p>
+            <h3>A Gmail address</h3>
+            <p>A Gmail or Hotmail address instead of your own business one instantly looks less serious.</p>
           </article>
           <article class="card">
             <div class="glyph">🕰️</div>
-            <h3>Contenido de hace años</h3>
-            <p>Un año viejo en el pie de página o un blog parado dicen que el negocio está dormido.</p>
+            <h3>Years out of date</h3>
+            <p>An old year in the footer or a dead blog tells people the business is asleep.</p>
           </article>
           <article class="card">
             <div class="glyph">📱</div>
-            <h3>No se ve bien en el móvil</h3>
-            <p>Casi todos te buscan desde el móvil. Si tienen que hacer zoom, se van.</p>
+            <h3>It breaks on phones</h3>
+            <p>Most people find you on their phone. If they have to pinch and zoom, they leave.</p>
           </article>
           <article class="card">
             <div class="glyph">🔎</div>
-            <h3>No sales en Google</h3>
-            <p>Si no apareces cuando te buscan, el cliente acaba en la competencia.</p>
+            <h3>Google can't find you</h3>
+            <p>If you don't turn up in search, people find your competitor first.</p>
           </article>
           <article class="card">
             <div class="glyph">🚪</div>
-            <h3>No genera contactos</h3>
-            <p>Sin un paso claro ni un botón de contacto, la gente mira y se va.</p>
+            <h3>It brings no enquiries</h3>
+            <p>No clear next step, no contact button — so people look around and then go.</p>
           </article>
         </div>
       </section>
 
-      <!-- QUÉ INCLUYE -->
+      <!-- WHAT YOU GET -->
       <section id="deliverables" class="block">
-        <h2 class="section-title">Qué incluye</h2>
+        <h2 class="section-title">What you get</h2>
         <p class="section-sub">
-          Una web terminada, lista el día que se publica. Todo incluido:
+          A finished website, ready the day it goes live. Everything's included:
         </p>
         <div class="grid">
           <article class="card">
             <div class="glyph">🗂️</div>
-            <h3>Todas las páginas</h3>
-            <p>Inicio, servicios, sobre ti y contacto. Escritas y montadas por mí.</p>
+            <h3>Every page you need</h3>
+            <p>Home, services, about, contact — written and built for you.</p>
           </article>
           <article class="card">
             <div class="glyph">✉️</div>
-            <h3>Un formulario que funciona</h3>
-            <p>Los mensajes te llegan directos al correo. Tú no configuras nada.</p>
+            <h3>A contact form that works</h3>
+            <p>Enquiries land straight in your inbox. Nothing to set up on your side.</p>
           </article>
           <article class="card">
             <div class="glyph">📐</div>
-            <h3>Se ve bien en cualquier pantalla</h3>
-            <p>Móvil, tablet y ordenador: se ve bien en todos.</p>
+            <h3>Sharp on every screen</h3>
+            <p>Phone, tablet, desktop — it looks right on all of them.</p>
           </article>
           <article class="card">
             <div class="glyph">⚡</div>
-            <h3>Carga rápido</h3>
-            <p>Las páginas abren en menos de dos segundos, así la gente se queda.</p>
+            <h3>Fast loading</h3>
+            <p>Pages open in under two seconds, so people stay long enough to call.</p>
           </article>
           <article class="card">
             <div class="glyph">✍️</div>
-            <h3>Textos que venden</h3>
-            <p>Escribo los textos en un lenguaje claro que tus clientes entienden.</p>
+            <h3>Words that sell</h3>
+            <p>I write your copy in clear, simple language your customers actually read.</p>
           </article>
           <article class="card">
             <div class="glyph">🖼️</div>
-            <h3>Tus fotos, bien puestas</h3>
-            <p>Coloco y retoco tus fotos para que luzcan.</p>
+            <h3>Your photos, placed right</h3>
+            <p>I set up and tidy your images so they look their best.</p>
           </article>
         </div>
       </section>
 
-      <!-- CÓMO FUNCIONA -->
+      <!-- HOW IT WORKS -->
       <section id="how" class="block">
-        <h2 class="section-title">Confía en el mago — así va</h2>
+        <h2 class="section-title">Trust the wizard — here's how it goes</h2>
         <div class="steps">
           <div class="step">
             <span class="step-num">1</span>
-            <h3>Reserva 15 minutos</h3>
-            <p>Hablamos de tu negocio y de lo que necesita tu web. Sin coste, sin compromiso.</p>
+            <h3>Book a call — 15 min</h3>
+            <p>We talk about your business and what your site needs. No cost, no pressure.</p>
           </div>
           <div class="step">
             <span class="step-num">2</span>
-            <h3>La construyo</h3>
-            <p>Te enseño una web terminada, no un boceto.</p>
+            <h3>I build it</h3>
+            <p>You get a finished site to look at, not a rough sketch.</p>
           </div>
           <div class="step">
             <span class="step-num">3</span>
-            <h3>La revisas</h3>
-            <p>Me dices qué cambiar. La afino hasta que quede bien.</p>
+            <h3>You review</h3>
+            <p>Tell me what to change. I keep tweaking until it's right.</p>
           </div>
           <div class="step">
             <span class="step-num">4</span>
-            <h3>Se publica</h3>
-            <p>Tu web nueva sale online: rápida, para el móvil y tuya.</p>
+            <h3>You go live</h3>
+            <p>Your new site goes online — fast, mobile-ready, and yours to keep.</p>
           </div>
         </div>
       </section>
 
-      <!-- PRECIO -->
+      <!-- PRICE -->
       <section id="price" class="block">
         <div class="panel">
-          <h2>Precio claro</h2>
+          <h2>Simple pricing</h2>
           <p class="panel-sub">
-            Un precio cerrado por toda la web, acordado en la llamada. Sin tarifas
-            por hora ni facturas sorpresa: sabes el número antes de empezar.
+            One fixed price for the whole site, agreed on our call. No hourly
+            billing, no surprise invoices — you know the number before I start.
           </p>
           <div class="hero-cta">
-            <a class="btn btn-primary cta" href="#">Reserva 15 minutos</a>
+            <a class="btn btn-primary cta" href="#">Book a call</a>
           </div>
-          <p class="micro">15 minutos, sin compromiso.</p>
-          <p class="fallback">O <a class="mailto" href="mailto:hello@trustthewizard.com">escríbeme un email</a>.</p>
+          <p class="micro">15 minutes, no pressure.</p>
+          <p class="fallback">Don't use Google Calendar? <a class="mailto" href="mailto:hello@trustthewizard.com">Email me instead</a>.</p>
         </div>
       </section>
 
-      <!-- PRUEBA: ANTES / DESPUÉS + EJEMPLO COMPLETO -->
+      <!-- PROOF: BEFORE / AFTER + FULL EXAMPLE -->
       <section id="proof" class="block">
-        <h2 class="section-title">Mira cómo podría quedar tu web</h2>
+        <h2 class="section-title">See what your site could look like</h2>
         <p class="section-sub">
-          Primero la web cansada que arrastran casi todos. Después, un ejemplo
-          completo pensado para conseguir contactos.
+          First the tired site most businesses settle for — then a full example,
+          built to turn visitors into enquiries.
         </p>
         <div class="compare">
           <figure class="shot">
             <div class="browser browser-old">
               <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
               <div class="browser-body old-body">
-                <p class="old-title">Bienvenidos a nuestra página web</p>
-                <p class="old-line">Inicio | Quiénes somos | Servicios | Contacto</p>
+                <p class="old-title">Welcome to Our Website!!!</p>
+                <p class="old-line">Home | About Us | Services | Contact</p>
                 <p class="old-para">
-                  Somos una empresa familiar fundada en 1998 al servicio de la zona
-                  con un trato cercano llámenos al teléfono de abajo o envíenos un
-                  fax para pedir presupuesto gracias por visitar nuestra web.
+                  We are a family run business est. 1998 serving the local area
+                  with quality service please call us on the number below or send
+                  a fax for a quote today thank you for visiting our homepage.
                 </p>
-                <p class="old-note">⚠ Se ve mejor en el ordenador</p>
+                <p class="old-note">⚠ Best viewed on desktop</p>
               </div>
             </div>
-            <figcaption>La web que tienes</figcaption>
+            <figcaption>The site you have</figcaption>
           </figure>
 
           <figure class="shot">
             <div class="browser browser-new">
               <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
               <div class="browser-body new-body">
-                <p class="new-eyebrow">Empresa familiar desde 1998</p>
-                <p class="new-title">Servicio local de confianza, bien hecho.</p>
-                <p class="new-para">Rápidos, cercanos y puntuales.</p>
-                <span class="new-btn">Pide presupuesto</span>
+                <p class="new-eyebrow">Family run since 1998</p>
+                <p class="new-title">Trusted local service, done right.</p>
+                <p class="new-para">Fast, friendly, and finished on time.</p>
+                <span class="new-btn">Get a quote</span>
               </div>
             </div>
-            <figcaption>La web que podrías tener</figcaption>
+            <figcaption>The site you could have</figcaption>
           </figure>
         </div>
 
-        <!-- Ejemplo completo: web de una residencia (con su propia marca cálida) -->
+        <!-- Full example: a care-home site (its own warm brand) -->
         <div class="showcase">
-          <p class="showcase-label">Un ejemplo completo que hemos hecho — una web entera de una residencia. Échale un vistazo.</p>
+          <p class="showcase-label">A full example we built — an entire care-home site. Take a look inside.</p>
           <div class="demo-frame-wrap">
           <div class="browser demo-frame">
             <div class="browser-bar" aria-hidden="true">
@@ -263,24 +263,25 @@
               <header class="ds-nav">
                 <span class="ds-logo">🌿 Golden Days</span>
                 <nav class="ds-links">
-                  <span>Cuidados</span>
-                  <span>El día a día</span>
-                  <span>Visítanos</span>
-                  <span class="ds-phone">☏ 910 000 000</span>
-                  <span class="ds-btn">Reserva una visita</span>
+                  <span>Care</span>
+                  <span>Life here</span>
+                  <span>Visit us</span>
+                  <span class="ds-phone">☏ (555) 210-4488</span>
+                  <span class="ds-btn">Schedule a visit</span>
                 </nav>
               </header>
 
               <div class="ds-hero">
                 <div class="ds-hero-text">
-                  <p class="ds-eyebrow">Residencia y cuidado de memoria</p>
-                  <p class="ds-title">Cuidado con cariño, cerca de casa.</p>
+                  <p class="ds-eyebrow">Assisted living &amp; memory care</p>
+                  <p class="ds-title">Compassionate care, close to home.</p>
                   <p class="ds-lede">
-                    Una casa familiar donde cuidamos a los tuyos como a los nuestros.
+                    A warm, family-run home where your loved ones are looked after
+                    like our own.
                   </p>
                   <div class="ds-actions">
-                    <span class="ds-btn ds-btn-lg">Reserva una visita</span>
-                    <span class="ds-rating"><b>★★★★★</b> 4,9 · 120+ familias contentas</span>
+                    <span class="ds-btn ds-btn-lg">Schedule a visit</span>
+                    <span class="ds-rating"><b>★★★★★</b> 4.9 · loved by 120+ families</span>
                   </div>
                 </div>
                 <div class="ds-hero-photo" aria-hidden="true">
@@ -303,20 +304,20 @@
                     <rect x="162" y="204" width="18" height="18" rx="2" fill="#cfe8dc" />
                     <rect x="220" y="204" width="18" height="18" rx="2" fill="#cfe8dc" />
                   </svg>
-                  <span class="ds-photo-chip">Nuestro jardín</span>
+                  <span class="ds-photo-chip">Our garden courtyard</span>
                 </div>
               </div>
 
               <div class="ds-features">
-                <div class="ds-feat"><span class="ds-ico">🩺</span> Enfermería 24 h</div>
-                <div class="ds-feat"><span class="ds-ico">🍲</span> Comida casera</div>
-                <div class="ds-feat"><span class="ds-ico">🌷</span> Actividades cada día</div>
-                <div class="ds-feat"><span class="ds-ico">🛡️</span> Seguro y tranquilo</div>
+                <div class="ds-feat"><span class="ds-ico">🩺</span> 24/7 nursing</div>
+                <div class="ds-feat"><span class="ds-ico">🍲</span> Chef-cooked meals</div>
+                <div class="ds-feat"><span class="ds-ico">🌷</span> Daily activities</div>
+                <div class="ds-feat"><span class="ds-ico">🛡️</span> Safe &amp; secure</div>
               </div>
 
               <blockquote class="ds-quote">
-                “El equipo trata a mi madre como de la familia. Por fin duermo por las noches.”
-                <span class="ds-quote-by">— María, hija de una residente</span>
+                “The team treats my mother like family. I finally sleep at night.”
+                <span class="ds-quote-by">— María, daughter of a resident</span>
               </blockquote>
             </div>
           </div>
@@ -325,34 +326,34 @@
             href="https://example.trustthewizard.com/"
             target="_blank"
             rel="noopener"
-            aria-label="Abrir el ejemplo completo de Golden Days en una pestaña nueva"
+            aria-label="Open the full Golden Days example site in a new tab"
           >
-            <span class="demo-open" aria-hidden="true">Abrir el ejemplo en vivo ↗</span>
+            <span class="demo-open" aria-hidden="true">Open the live example ↗</span>
           </a>
           </div>
           <p class="showcase-explore">
-            <a class="explore-btn" href="https://example.trustthewizard.com/" target="_blank" rel="noopener">Ver el ejemplo completo <span aria-hidden="true">↗</span></a>
+            <a class="explore-btn" href="https://example.trustthewizard.com/" target="_blank" rel="noopener">Explore the full example <span aria-hidden="true">↗</span></a>
           </p>
           <div class="showcase-cta">
-            <a class="btn btn-primary cta" href="#">Reserva 15 minutos</a>
-            <p class="micro">¿Quieres una así para tu negocio? Hablamos.</p>
+            <a class="btn btn-primary cta" href="#">Book a call</a>
+            <p class="micro">Want one like this for your business? Let's talk.</p>
           </div>
         </div>
       </section>
 
-      <!-- CTA FINAL -->
+      <!-- FINAL CTA -->
       <section id="cta" class="block">
         <div class="panel">
-          <h2>¿Listo para una web que trabaje para ti?</h2>
+          <h2>Ready for a site that pulls its weight?</h2>
           <p class="panel-sub">
-            Reserva 15 minutos. Hablamos de tu negocio y de lo que necesita tu web,
-            sin compromiso ni rollos de venta.
+            Book a 15-minute call. We'll talk through your business and what your
+            site needs — no pressure, no pitch.
           </p>
           <div class="hero-cta">
-            <a class="btn btn-primary cta" href="#">Reserva 15 minutos</a>
+            <a class="btn btn-primary cta" href="#">Book a call</a>
           </div>
-          <p class="micro">15 minutos, sin compromiso.</p>
-          <p class="fallback">O <a class="mailto" href="mailto:hello@trustthewizard.com">escríbeme un email</a>.</p>
+          <p class="micro">15 minutes, no pressure.</p>
+          <p class="fallback">Don't use Google Calendar? <a class="mailto" href="mailto:hello@trustthewizard.com">Email me instead</a>.</p>
         </div>
       </section>
     </main>
@@ -361,9 +362,9 @@
       <div class="footer-brand">
         <svg class="brand-wand" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5 L13.6 10.4" stroke="#a78bfa" stroke-width="2.3" stroke-linecap="round"/><circle cx="4.5" cy="19.5" r="1.5" fill="#a78bfa"/><path d="M16.7 4.6 l1.2 3.25 3.25 1.2 -3.25 1.2 -1.2 3.25 -1.2 -3.25 -3.25 -1.2 3.25 -1.2 z" fill="#f2c66b"/><circle cx="9" cy="7.4" r="0.95" fill="#f2c66b" opacity="0.85"/></svg> Conjure
       </div>
-      <p>Webs hechas a mano para tu negocio.</p>
-      <p class="footer-contact">Escríbeme: <a class="mailto" href="mailto:hello@trustthewizard.com">hello@trustthewizard.com</a></p>
-      <p class="fine">© <span id="year"></span> Conjure. Confía en el mago.</p>
+      <p>Websites for your business, built by hand.</p>
+      <p class="footer-contact">Email me: <a class="mailto" href="mailto:hello@trustthewizard.com">hello@trustthewizard.com</a></p>
+      <p class="fine">© <span id="year"></span> Conjure. Trust the wizard.</p>
     </footer>
 
     <script src="/script.js?v=8"></script>

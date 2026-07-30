@@ -836,6 +836,12 @@ section {
   font-size: 1.4rem;
   margin-bottom: 7px;
 }
+/* In the Golden Days preview, .ds-ico holds a metric number, not an emoji */
+.ds-features .ds-ico {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  color: #2e7d64;
+}
 
 .ds-quote {
   margin: 0 22px 26px;

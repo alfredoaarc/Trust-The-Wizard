@@ -1,0 +1,8 @@
+Ilustraciones SVG propias, creadas para esta demo (misma pauta que las de Golden Days).
+
+Las fotos que se intentan cargar sobre ellas provienen de Pexels (licencia Pexels,
+uso libre). Si alguna URL deja de existir, el `onerror` del <img> cae a estas
+ilustraciones y la página nunca muestra un hueco roto.
+
+En la web real de una clínica: sesión de fotos propia (equipo y consulta) y
+estas ilustraciones quedan solo como último recurso.

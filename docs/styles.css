@@ -881,6 +881,16 @@ section {
   .ds-title { font-size: 1.6rem; }
 }
 
+/* The dental-clinic preview reuses the showcase structure with its own brand:
+   cream base, sage green for trust, one warm accent reserved for the CTA */
+.demo-dental { background: #faf7f1; }
+.demo-dental .ds-nav { background: #fffdf8; }
+.demo-dental .ds-logo { color: #1f5949; }
+.demo-dental .ds-btn { background: #c05a1e; border-radius: 999px; }
+.demo-dental .ds-eyebrow { color: #2e6e59; }
+.demo-dental .ds-features .ds-ico { color: #1f5949; }
+.demo-dental .ds-quote { background: #1f5949; }
+
 /* Footer */
 .footer {
   text-align: center;

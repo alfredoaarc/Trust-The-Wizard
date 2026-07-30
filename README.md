@@ -18,8 +18,13 @@ This repo is the **landing page**.
 │   ├── script.js      # Sets the booking link + footer year
 │   ├── wizard.svg     # The Conjure wizard mark
 │   ├── og.png         # Social share image
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── dental/        # Example site #2: a dental clinic (served at /dental/)
 ```
+
+The showcase section of the landing links two full example sites: **Golden Days**
+(a care home, its own repo, published at `example.trustthewizard.com`) and the
+**dental clinic** example that lives in this repo under `docs/dental/`.
 
 ## Run it locally
 

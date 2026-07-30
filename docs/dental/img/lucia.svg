@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img">
+<defs>
+<radialGradient id="bg" cx="50%" cy="38%" r="72%">
+<stop offset="0" stop-color="#eef4ef"/><stop offset="1" stop-color="#d2e2d6"/>
+</radialGradient>
+</defs>
+<rect width="400" height="400" fill="url(#bg)"/>
+<circle cx="200" cy="176" r="150" fill="#ffffff" opacity="0.12"/>
+<!-- shoulders: white clinical coat -->
+<path d="M92 400 Q98 302 200 290 Q302 302 308 400 Z" fill="#f4faf5"/>
+<path d="M188 290 h24 v22 q-12 10 -24 0 Z" fill="#c98f63"/>
+<path d="M200 312 L176 340 L200 396 L224 340 Z" fill="#3f7d68"/>
+<path d="M92 400 Q100 330 152 312 L200 358 L248 312 Q300 330 308 400 Z" fill="#e2ede4" opacity="0.7"/>
+<!-- head -->
+<ellipse cx="200" cy="192" rx="64" ry="70" fill="#e8b98e"/>
+<!-- hair: dark, tied back -->
+<path d="M136 190 Q130 108 200 104 Q270 108 264 190 Q262 148 200 142 Q138 148 136 190 Z" fill="#4a3428"/>
+<path d="M136 190 Q140 160 158 150 Q140 178 142 210 Q136 202 136 190 Z" fill="#4a3428"/>
+<path d="M264 190 Q260 160 242 150 Q260 178 258 210 Q264 202 264 190 Z" fill="#4a3428"/>
+<!-- ears -->
+<circle cx="138" cy="198" r="11" fill="#e8b98e"/>
+<circle cx="262" cy="198" r="11" fill="#e8b98e"/>
+<!-- face -->
+<circle cx="170" cy="194" r="5" fill="#3a2e26"/>
+<circle cx="230" cy="194" r="5" fill="#3a2e26"/>
+<path d="M158 180 Q170 174 182 180" fill="none" stroke="#4a3428" stroke-width="4" stroke-linecap="round"/>
+<path d="M218 180 Q230 174 242 180" fill="none" stroke="#4a3428" stroke-width="4" stroke-linecap="round"/>
+<path d="M200 196 L196 212 Q200 216 204 212" fill="none" stroke="#c98f63" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M176 232 Q200 246 224 232" fill="none" stroke="#a8674a" stroke-width="5" stroke-linecap="round"/>
+<circle cx="158" cy="216" r="9" fill="#e8927a" opacity="0.3"/>
+<circle cx="242" cy="216" r="9" fill="#e8927a" opacity="0.3"/>
+</svg>

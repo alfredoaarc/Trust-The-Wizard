@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img">
+<defs>
+<radialGradient id="bg" cx="50%" cy="38%" r="72%">
+<stop offset="0" stop-color="#eef4ef"/><stop offset="1" stop-color="#d2e2d6"/>
+</radialGradient>
+</defs>
+<rect width="400" height="400" fill="url(#bg)"/>
+<circle cx="200" cy="176" r="150" fill="#ffffff" opacity="0.12"/>
+<!-- shoulders: sage scrubs -->
+<path d="M94 400 Q100 300 200 288 Q300 300 306 400 Z" fill="#3f7d68"/>
+<path d="M188 288 h24 v22 q-12 10 -24 0 Z" fill="#bd8557"/>
+<path d="M200 310 L182 330 L200 352 L218 330 Z" fill="#2c5c4c"/>
+<path d="M94 400 Q102 332 150 312 L200 354 L250 312 Q298 332 306 400 Z" fill="#356a58" opacity="0.8"/>
+<!-- head -->
+<ellipse cx="200" cy="194" rx="65" ry="71" fill="#dda876"/>
+<!-- short hair + glasses -->
+<path d="M138 178 Q142 116 200 112 Q258 116 262 178 Q250 140 200 138 Q150 140 138 178 Z" fill="#2e2620"/>
+<circle cx="137" cy="200" r="11" fill="#dda876"/>
+<circle cx="263" cy="200" r="11" fill="#dda876"/>
+<circle cx="170" cy="196" r="17" fill="none" stroke="#33302b" stroke-width="4"/>
+<circle cx="230" cy="196" r="17" fill="none" stroke="#33302b" stroke-width="4"/>
+<line x1="187" y1="196" x2="213" y2="196" stroke="#33302b" stroke-width="4"/>
+<circle cx="170" cy="196" r="5" fill="#3a2e26"/>
+<circle cx="230" cy="196" r="5" fill="#3a2e26"/>
+<path d="M156 176 Q170 170 184 176" fill="none" stroke="#2e2620" stroke-width="4" stroke-linecap="round"/>
+<path d="M216 176 Q230 170 244 176" fill="none" stroke="#2e2620" stroke-width="4" stroke-linecap="round"/>
+<path d="M200 198 L196 214 Q200 218 204 214" fill="none" stroke="#b07c4f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M174 234 Q200 250 226 234" fill="none" stroke="#9c5f42" stroke-width="5" stroke-linecap="round"/>
+<!-- light beard -->
+<path d="M156 226 Q160 258 200 262 Q240 258 244 226 Q236 250 200 252 Q164 250 156 226 Z" fill="#2e2620" opacity="0.35"/>
+</svg>

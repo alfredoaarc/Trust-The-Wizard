@@ -1,0 +1,712 @@
+/* Clínica Dental Robles — sanitario pero cálido.
+   Base crema, verde salvia como color de confianza y UN solo acento cálido,
+   reservado en exclusiva para los CTAs. */
+
+:root {
+  --paper: #faf7f1;
+  --card: #ffffff;
+  --card-warm: #fffdf8;
+  --ink: #263330;
+  --muted: #5c6a63;
+  --line: rgba(38, 51, 48, 0.12);
+  --green: #2e6e59;
+  --green-deep: #1f5949;
+  --green-soft: #e7f1ea;
+  --cta: #c05a1e;
+  --cta-deep: #a84e18;
+  --star: #e9a13b;
+  --err: #b3341e;
+  --radius: 14px;
+  --shadow: 0 14px 40px -18px rgba(38, 51, 48, 0.25);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 17px; /* el público incluye 60–75 años: cuerpo generoso */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: "Lora", Georgia, serif; line-height: 1.15; }
+
+a { color: var(--green-deep); }
+
+img { max-width: 100%; }
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 0 0 10px 0;
+  z-index: 100;
+}
+.skip:focus { left: 0; }
+
+/* ---------- Botones: un solo primario por pantalla ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px; /* área táctil ≥ 44px */
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-cta {
+  background: var(--cta);
+  color: #fff;
+  box-shadow: 0 10px 24px -10px rgba(192, 90, 30, 0.55);
+}
+.btn-cta:hover { background: var(--cta-deep); transform: translateY(-2px); }
+
+.btn-ghost {
+  background: #fff;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+}
+.btn-ghost:hover { border-color: var(--green); transform: translateY(-2px); }
+
+.btn-ghost svg { width: 20px; height: 20px; fill: #1fa855; }
+
+.btn-block { width: 100%; }
+
+.btn:focus-visible,
+a:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 2px;
+}
+
+/* ---------- Cabecera fija ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px clamp(16px, 4vw, 40px);
+  background: rgba(250, 247, 241, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand-tooth { width: 27px; height: 27px; fill: var(--green); flex: none; }
+
+.brand-name { font-family: "Lora", serif; font-size: 1.08rem; letter-spacing: 0.01em; }
+.brand-name b { color: var(--green-deep); }
+
+.topbar-right { display: flex; align-items: center; gap: 18px; }
+
+.today {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.today-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ca05a;
+  margin-right: 7px;
+  vertical-align: 1px;
+}
+.today.is-closed .today-dot { background: #c9a13b; }
+
+.topbar-phone {
+  font-weight: 700;
+  font-size: 1.02rem;
+  text-decoration: none;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.topbar-phone:hover { color: var(--green-deep); }
+
+.topbar-cta { min-height: 44px; padding: 9px 20px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(26px, 5vw, 60px);
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(36px, 7vw, 80px) 24px 40px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 4.6vw, 3.1rem);
+  font-weight: 600;
+}
+
+.hero-sub { margin: 0 0 26px; color: var(--muted); font-size: 1.1rem; max-width: 34em; }
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+
+.hero-trust { margin: 0; font-size: 0.92rem; color: var(--muted); }
+.hero-trust a { color: inherit; }
+.hero-trust strong { color: var(--ink); }
+.stars { color: var(--star); letter-spacing: 2px; }
+.dotsep { margin: 0 6px; }
+
+.hero-media { position: relative; }
+
+.hero-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  display: block;
+}
+
+.photo-chip {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ---------- Franja de confianza ---------- */
+.trust { background: var(--green-soft); padding: 30px 24px 22px; }
+
+.metrics {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.metrics b {
+  display: block;
+  font-family: "Lora", serif;
+  font-size: 1.7rem;
+  color: var(--green-deep);
+}
+
+.metrics span { font-size: 0.88rem; color: var(--muted); }
+
+.metrics-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  opacity: 0.85;
+  margin: 16px auto 0;
+  max-width: 640px;
+}
+
+/* ---------- Bloques genéricos ---------- */
+.block { max-width: 1120px; margin: 0 auto; padding: clamp(48px, 8vw, 90px) 24px 0; }
+
+.section-title { font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin: 0 0 12px; }
+
+.section-sub { color: var(--muted); margin: 0 0 34px; max-width: 44em; }
+
+/* ---------- Tratamientos ---------- */
+.treat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.treat-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 22px 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.treat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+.treat-ico { font-size: 1.6rem; margin-bottom: 10px; }
+
+.treat-card h3 { margin: 0 0 6px; font-size: 1.15rem; }
+
+.treat-card p { margin: 0 0 14px; color: var(--muted); font-size: 0.95rem; }
+
+.treat-price { font-size: 0.95rem; color: var(--ink) !important; }
+.treat-price b { font-family: "Lora", serif; font-size: 1.25rem; color: var(--green-deep); }
+.treat-price span { color: var(--muted); font-size: 0.85rem; }
+.treat-price a { font-weight: 600; }
+
+.treat-card-urgent { background: var(--card-warm); border-color: rgba(192, 90, 30, 0.35); }
+
+/* ---------- Urgencias ---------- */
+.urgent { background: var(--green-deep); color: #f2f7f3; margin-top: clamp(48px, 8vw, 90px); }
+
+.urgent-inner { max-width: 780px; margin: 0 auto; padding: clamp(44px, 7vw, 70px) 24px; text-align: center; }
+
+.urgent h2 { margin: 0 0 10px; font-size: clamp(1.7rem, 3.4vw, 2.3rem); color: #fff; }
+
+.urgent-sub { margin: 0 auto 24px; max-width: 36em; color: #d7e6da; }
+.urgent-sub strong { color: #fff; }
+
+.urgent-phone {
+  display: inline-block;
+  font-family: "Lora", serif;
+  font-size: clamp(1.9rem, 5.5vw, 2.8rem);
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  padding: 14px 34px;
+  transition: background 0.2s ease;
+}
+.urgent-phone:hover { background: rgba(255, 255, 255, 0.18); }
+
+.urgent-hours { margin: 12px 0 0; font-size: 0.9rem; color: #b9d2bf; }
+
+.urgent-tips {
+  margin-top: 34px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+}
+
+.urgent-tips h3 { margin: 0 0 10px; color: #fff; font-size: 1.05rem; }
+
+.urgent-tips ul { margin: 0; padding-left: 20px; color: #d7e6da; font-size: 0.95rem; }
+.urgent-tips li { margin-bottom: 6px; }
+
+/* ---------- Equipo ---------- */
+.people-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+.person {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  text-align: center;
+}
+
+.person img {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+  border: 4px solid var(--green-soft);
+}
+
+.person h3 { margin: 0 0 4px; font-size: 1.12rem; }
+
+.person-role { margin: 0 0 10px; font-size: 0.84rem; color: var(--muted); }
+
+.person-line { margin: 0; font-size: 0.94rem; font-style: italic; color: var(--ink); }
+
+/* ---------- Opiniones ---------- */
+.reviews-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+
+.reviews-score { margin: 0; display: flex; align-items: baseline; gap: 10px; }
+.reviews-score b { font-family: "Lora", serif; font-size: 2.4rem; color: var(--ink); }
+.reviews-score .stars { font-size: 1.2rem; }
+
+.reviews-count { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.todo-chip {
+  display: inline-block;
+  background: #f3ead6;
+  color: #8a6d2f;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  margin-left: 6px;
+  vertical-align: 1px;
+}
+
+.reviews-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.review {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  font-size: 0.95rem;
+}
+
+.review p { margin: 0 0 10px; }
+
+.review-stars { color: var(--star); letter-spacing: 2px; }
+
+.review-by { color: var(--muted); font-size: 0.82rem; margin: 0 !important; }
+
+.reviews-link { margin-top: 22px; }
+.reviews-link a { font-weight: 600; }
+
+/* ---------- Cita online ---------- */
+.booking { background: var(--green-soft); margin-top: clamp(48px, 8vw, 90px); }
+
+.booking-inner { max-width: 720px; margin: 0 auto; padding: clamp(44px, 7vw, 76px) 24px; }
+
+.booking h2 { margin: 0 0 10px; font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
+
+.booking-sub { color: var(--muted); margin: 0 0 30px; }
+
+.bk-step {
+  border: 0;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin: 0 0 16px;
+  box-shadow: 0 6px 20px -14px rgba(38, 51, 48, 0.3);
+}
+
+.bk-step legend {
+  font-family: "Lora", serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0 6px;
+  float: left; /* keeps the legend inside the card in every browser */
+  width: 100%;
+  margin-bottom: 14px;
+}
+.bk-step legend + * { clear: both; }
+
+.bk-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-right: 9px;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 9px; }
+.chips + .chips { margin-top: 12px; }
+
+.chip {
+  border: 1.5px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  min-height: 44px;
+  padding: 9px 17px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.chip:hover { border-color: var(--green); }
+
+.chip[aria-checked="true"] {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+  font-weight: 600;
+}
+
+.chip small { display: block; font-size: 0.72rem; font-weight: 400; opacity: 0.75; }
+
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.fields label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 0.92rem; }
+.fields label em { font-weight: 400; color: var(--muted); font-style: normal; }
+
+.field-wide { grid-column: 1 / -1; }
+
+.fields input {
+  min-height: 48px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  background: #fff;
+  color: var(--ink);
+}
+
+.fields input[aria-invalid="true"] { border-color: var(--err); }
+
+.field-err { color: var(--err); font-weight: 500; min-height: 1em; }
+
+.consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 14px;
+  font-size: 0.87rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.consent input { width: 19px; height: 19px; margin-top: 2px; accent-color: var(--green); flex: none; }
+
+.booking .btn-block { margin-top: 6px; }
+
+.reassure { text-align: center; font-size: 0.9rem; color: var(--muted); margin: 12px 0 0; }
+
+.form-msg { text-align: center; color: var(--err); font-weight: 600; min-height: 1.4em; margin: 8px 0 0; }
+
+.booking-done {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.done-mark {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-size: 1.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.booking-done h3 { margin: 0 0 8px; font-size: 1.4rem; }
+
+.booking-done p { color: var(--muted); margin: 0 0 8px; }
+
+.done-note { font-size: 0.88rem; }
+
+.booking-alt { text-align: center; margin: 22px 0 0; font-size: 0.95rem; color: var(--muted); }
+
+/* ---------- Cómo llegar ---------- */
+.visit-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 30px; align-items: stretch; }
+
+.visit-addr { font-size: 1.15rem; margin: 0 0 16px; }
+
+.visit-how { list-style: none; margin: 0 0 16px; padding: 0; color: var(--muted); font-size: 0.96rem; }
+.visit-how li { margin-bottom: 7px; }
+.visit-how b { color: var(--ink); margin-right: 6px; }
+
+.visit-hours { margin: 0 0 8px; }
+.visit-hours b { margin-right: 6px; }
+
+.visit-contact { margin: 0; font-weight: 600; }
+
+.map-facade {
+  position: relative;
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  min-height: 240px;
+}
+
+.map-facade svg { width: 100%; height: 100%; display: block; }
+
+.map-open {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 9px 16px;
+  border-radius: 999px;
+}
+
+/* ---------- FAQ ---------- */
+.faq-list { max-width: 760px; }
+
+.faq-list details {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0 22px;
+  margin-bottom: 10px;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 17px 0;
+  list-style: none;
+  position: relative;
+  padding-right: 34px;
+}
+
+.faq-list summary::-webkit-details-marker { display: none; }
+
+.faq-list summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: var(--green);
+}
+
+.faq-list details[open] summary::after { content: "–"; }
+
+.faq-list details p { margin: 0 0 18px; color: var(--muted); }
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: clamp(48px, 8vw, 90px);
+  border-top: 1px solid var(--line);
+  background: var(--card-warm);
+  padding: 44px 24px 90px; /* hueco para la barra móvil */
+}
+
+.footer-grid {
+  max-width: 1120px;
+  margin: 0 auto 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  font-size: 0.93rem;
+  color: var(--muted);
+}
+
+.footer-grid p { margin: 0 0 8px; }
+
+.footer-name { font-family: "Lora", serif; font-size: 1.1rem; color: var(--ink); }
+
+.footer-legal a { color: var(--muted); }
+
+.footer-demo {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-top: 18px;
+  border-top: 1px dashed var(--line);
+  font-size: 0.82rem;
+  color: var(--muted);
+  opacity: 0.9;
+}
+
+/* ---------- Barra móvil fija ---------- */
+.mobile-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: none;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -8px 24px -12px rgba(38, 51, 48, 0.25);
+}
+
+.mobile-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 56px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.mobile-bar-cta { background: var(--cta); color: #fff !important; }
+
+/* ---------- Animación de aparición (respetando reduced-motion) ---------- */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .treat-grid, .people-grid, .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  .today { display: none; }
+}
+
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; padding-top: 28px; }
+  .hero-media { order: -1; }
+  .hero-photo { aspect-ratio: 16 / 10; }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .treat-grid, .people-grid, .reviews-grid { grid-template-columns: 1fr; }
+  .fields { grid-template-columns: 1fr; }
+  .visit-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .mobile-bar { display: grid; }
+  .topbar-phone span { display: none; }
+  .topbar-phone { font-size: 0.95rem; }
+  .topbar-cta { display: none; } /* en móvil manda la barra inferior */
+  .brand-name { font-size: 1rem; }
+}

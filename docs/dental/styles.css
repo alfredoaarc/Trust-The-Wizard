@@ -144,6 +144,36 @@ summary:focus-visible {
 }
 .today.is-closed .today-dot { background: #c9a13b; }
 
+/* Selector de idioma: mismo patrón que el resto de webs del dominio */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.lang-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+  padding: 4px 2px; /* área táctil algo mayor sin romper la cabecera */
+}
+
+.lang-link:hover { color: var(--ink); }
+
+.lang-link.is-active { color: var(--ink); }
+
+.lang-flag {
+  width: 17px;
+  height: 12px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
 .topbar-phone {
   font-weight: 700;
   font-size: 1.02rem;
@@ -712,5 +742,7 @@ summary:focus-visible {
   .topbar-phone span { display: none; }
   .topbar-phone { font-size: 0.95rem; }
   .topbar-cta { display: none; } /* en móvil manda la barra inferior */
-  .brand-name { font-size: 1rem; }
+  .brand-name { font-size: 1rem; white-space: nowrap; }
+  .brand-long { display: none; } /* en móvil, el diente + «Robles» bastan */
+  .topbar-right { gap: 12px; }
 }

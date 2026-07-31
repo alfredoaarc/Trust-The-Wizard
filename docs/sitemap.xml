@@ -15,5 +15,14 @@
   </url>
   <url>
     <loc>https://trustthewizard.com/dental/</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://trustthewizard.com/dental/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://trustthewizard.com/dental/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trustthewizard.com/dental/" />
+  </url>
+  <url>
+    <loc>https://trustthewizard.com/dental/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://trustthewizard.com/dental/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://trustthewizard.com/dental/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trustthewizard.com/dental/" />
   </url>
 </urlset>

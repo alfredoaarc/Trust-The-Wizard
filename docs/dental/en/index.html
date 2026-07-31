@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- First-visit language redirect: Spanish browsers → "/dental/". Never bots,
+         never after a choice (same ttw_lang cookie as the rest of the domain). -->
+    <script>
+      (function () {
+        try {
+          if (/(?:^|;\s*)ttw_lang=/.test(document.cookie)) return;
+          var ua = navigator.userAgent || "";
+          if (/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|embedly|quora|pinterest|whatsapp|telegram|W3C_Validator|Lighthouse|HeadlessChrome/i.test(ua)) return;
+          var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+          var isEs = langs.some(function (l) { return /^es\b/i.test(l); });
+          document.cookie = "ttw_lang=" + (isEs ? "es" : "en") + ";path=/;max-age=31536000";
+          if (isEs) location.replace("/dental/");
+        } catch (e) {}
+      })();
+    </script>
+
+    <title>Clínica Dental Robles — your dentist in Chamberí, Madrid</title>
+    <meta
+      name="description"
+      content="Neighbourhood dental clinic in Chamberí, Madrid. First visit and diagnosis at no cost, clear prices up front and online booking in under a minute."
+    />
+    <link rel="canonical" href="https://trustthewizard.com/dental/en/" />
+    <link rel="alternate" hreflang="es-ES" href="https://trustthewizard.com/dental/" />
+    <link rel="alternate" hreflang="en" href="https://trustthewizard.com/dental/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://trustthewizard.com/dental/" />
+    <meta property="og:title" content="Clínica Dental Robles — your dentist in Chamberí" />
+    <meta
+      property="og:description"
+      content="First visit at no cost, clear prices and online booking 24/7. We call you back today before 20:00."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <link rel="icon" href="/dental/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/dental/styles.css?v=3" />
+
+    <!-- Local SEO: Dentist schema. Fictional demo data — swap in the real details
+         and keep them identical (NAP) to the Google Business profile. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "name": "Clínica Dental Robles",
+        "description": "Neighbourhood dental clinic in Chamberí, Madrid. First visit and diagnosis at no cost.",
+        "url": "https://trustthewizard.com/dental/en/",
+        "telephone": "+34912345678",
+        "email": "hola@clinicadentalrobles.es",
+        "priceRange": "€€",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle de Trafalgar, 12",
+          "addressLocality": "Madrid",
+          "postalCode": "28010",
+          "addressCountry": "ES"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 40.4319, "longitude": -3.7016 },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:30",
+            "closes": "20:00"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "bestRating": "5",
+          "ratingCount": "127"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <!-- Sticky header: visible phone number, today's hours and a single primary button -->
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Clínica Dental Robles — home">
+        <svg class="brand-tooth" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3.2c-1.5-1-3.4-1.3-5-.5C4.8 3.8 4 6 4.5 8.4c.4 2 1.2 3.6 1.6 5.6.4 2.1.5 4.3 1.3 6.1.3.7 1.3.8 1.7.1.8-1.4.6-3.4 1.2-5 .3-.8.9-1.4 1.7-1.4s1.4.6 1.7 1.4c.6 1.6.4 3.6 1.2 5 .4.7 1.4.6 1.7-.1.8-1.8.9-4 1.3-6.1.4-2 1.2-3.6 1.6-5.6C20 6 19.2 3.8 17 2.7c-1.6-.8-3.5-.5-5 .5Z" />
+        </svg>
+        <span class="brand-name"><span class="brand-long">Clínica Dental </span><b>Robles</b></span>
+      </a>
+      <div class="topbar-right">
+        <p class="today" id="today-status"><span class="today-dot" aria-hidden="true"></span>Today: 9:30–20:00</p>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <a class="lang-link" data-lang="es" hreflang="es-ES" href="/dental/"><svg class="lang-flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#c60b1e"/><rect y="4" width="24" height="8" fill="#ffc400"/></svg>ES</a>
+          <span aria-hidden="true">·</span>
+          <a class="lang-link is-active" data-lang="en" hreflang="en" href="/dental/en/" aria-current="true"><svg class="lang-flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#fff"/><rect y="0" width="24" height="2.28" fill="#b22234"/><rect y="4.57" width="24" height="2.28" fill="#b22234"/><rect y="9.14" width="24" height="2.28" fill="#b22234"/><rect y="13.71" width="24" height="2.28" fill="#b22234"/><rect width="10.5" height="8.6" fill="#3c3b6e"/><g fill="#fff"><circle cx="2" cy="1.8" r=".6"/><circle cx="4.5" cy="1.8" r=".6"/><circle cx="7" cy="1.8" r=".6"/><circle cx="3.2" cy="4.3" r=".6"/><circle cx="5.7" cy="4.3" r=".6"/><circle cx="2" cy="6.8" r=".6"/><circle cx="4.5" cy="6.8" r=".6"/><circle cx="7" cy="6.8" r=".6"/></g></svg>EN</a>
+        </div>
+        <a class="topbar-phone" href="tel:+34912345678"><span aria-hidden="true">☏</span> 912 345 678</a>
+        <a class="btn btn-cta topbar-cta" href="#cita">Book a visit</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- 01 · HERO: the patient's three questions on one screen -->
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Chamberí · Madrid</p>
+          <h1 id="hero-title">Your neighbourhood dentist — no surprises, no fine print.</h1>
+          <p class="hero-sub">
+            First visit and diagnosis <strong>at no cost</strong>. Clear prices before anything
+            starts, and online booking at any hour — including the middle of the night.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-cta" href="#cita">Book online</a>
+            <a class="btn btn-ghost" href="tel:+34912345678"><span aria-hidden="true">☏</span> Call us</a>
+            <a
+              class="btn btn-ghost btn-wa"
+              href="https://wa.me/34612345678?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Cl%C3%ADnica%20Dental%20Robles"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.3-.5a.5.5 0 0 0 0-.5c0-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.1 5 5 0 0 0 1 2.7 11.4 11.4 0 0 0 4.4 3.9 14.6 14.6 0 0 0 1.5.5 3.6 3.6 0 0 0 1.6.1 2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+          <p class="hero-trust">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <a href="#opiniones"><strong>4.8</strong> on Google · 127 reviews</a>
+            <span class="dotsep" aria-hidden="true">·</span> Lic. 28004512
+            <span class="dotsep" aria-hidden="true">·</span> Since 2009
+          </p>
+        </div>
+        <div class="hero-media">
+          <!-- Brand illustration. On the real site: the clinic's own photo, in natural light. -->
+          <img
+            class="hero-photo"
+            src="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1024&amp;h=768"
+            onerror="this.onerror=null;this.src='/dental/img/hero.svg'"
+            alt="Dr. Robles treating a patient in the practice"
+            width="800"
+            height="600"
+          />
+          <p class="photo-chip">The practice on Calle Trafalgar</p>
+        </div>
+      </section>
+
+      <!-- 02 · TRUST STRIP: verifiable figures only -->
+      <section class="trust" aria-label="The clinic in numbers">
+        <ul class="metrics">
+          <li><b>16</b><span>years in the neighbourhood</span></li>
+          <li><b>9,200</b><span>patients treated</span></li>
+          <li><b>4.8 ★</b><span>on Google (127 reviews)</span></li>
+          <li><b>24 months</b><span>interest-free financing</span></li>
+        </ul>
+        <p class="metrics-note">Demo figures: on the real site, every one of these is verifiable.</p>
+      </section>
+
+      <!-- 03 · TREATMENTS with guide prices in plain sight -->
+      <section id="tratamientos" class="block treatments" aria-labelledby="treat-title">
+        <h2 id="treat-title" class="section-title">What we do, and from how much</h2>
+        <p class="section-sub">
+          Guide prices out in the open, as they should be. The final price is fixed after your
+          diagnosis — and the first assessment costs nothing and commits you to nothing.
+        </p>
+        <div class="treat-grid">
+          <article class="treat-card">
+            <div class="treat-ico" aria-hidden="true">🦷</div>
+            <h3>Implants</h3>
+            <p>Get the tooth back and eat everything again. With guided surgery.</p>
+            <p class="treat-price">from <b>€890</b> <span>or €37/month</span></p>
+          </article>
+          <article class="treat-card">
+            <div class="treat-ico" aria-hidden="true">😁</div>
+            <h3>Invisible orthodontics</h3>
+            <p>Straighten your teeth without brackets or a lost monthly visit.</p>
+            <p class="treat-price">from <b>€2,450</b> <span>or €79/month</span></p>
+          </article>
+          <article class="treat-card">
+            <div class="treat-ico" aria-hidden="true">✨</div>
+            <h3>Whitening</h3>
+            <p>Several shades whiter in one session, without sensitivity.</p>
+            <p class="treat-price">from <b>€275</b></p>
+          </article>
+          <article class="treat-card">
+            <div class="treat-ico" aria-hidden="true">🪥</div>
+            <h3>Cleaning &amp; check-up</h3>
+            <p>The yearly visit that prevents almost every expensive problem.</p>
+            <p class="treat-price">from <b>€55</b></p>
+          </article>
+          <article class="treat-card">
+            <div class="treat-ico" aria-hidden="true">🧒</div>
+            <h3>Kids</h3>
+            <p>A first check-up where they lose the fear, not a tooth.</p>
+            <p class="treat-price"><b>Free</b> <span>first check-up</span></p>
+          </article>
+          <article class="treat-card treat-card-urgent">
+            <div class="treat-ico" aria-hidden="true">⚡</div>
+            <h3>Emergencies</h3>
+            <p>Bad pain, a broken or knocked-out tooth: we'll see you today.</p>
+            <p class="treat-price"><a href="#urgencias">What to do right now ↓</a></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 04 · EMERGENCIES: for whoever arrives in pain, on their phone -->
+      <section id="urgencias" class="urgent" aria-labelledby="urgent-title">
+        <div class="urgent-inner">
+          <h2 id="urgent-title">In pain right now?</h2>
+          <p class="urgent-sub">
+            If you have bad pain, a broken tooth or a tooth that's been knocked out, call us:
+            we keep slots free every day for emergencies and <strong>we'll see you today</strong>.
+          </p>
+          <a class="urgent-phone" href="tel:+34912345678">☏ 912 345 678</a>
+          <p class="urgent-hours" id="urgent-status">Monday to Friday, 9:30–20:00.</p>
+          <div class="urgent-tips">
+            <h3>While you're on your way</h3>
+            <ul>
+              <li>If a whole tooth came out, keep it in milk or saline. Don't scrub it clean.</li>
+              <li>Cold compress on the outside of the cheek, in 10-minute intervals.</li>
+              <li>Don't lie flat: keep your head slightly raised.</li>
+              <li>Avoid aspirin if there's bleeding; paracetamol is better.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 · TEAM: real faces, names and license numbers -->
+      <section id="equipo" class="block people" aria-labelledby="people-title">
+        <h2 id="people-title" class="section-title">Who will look after you</h2>
+        <p class="section-sub">The same people every time. You won't meet a different doctor on every visit.</p>
+        <ul class="people-grid">
+          <li class="person">
+            <img
+              src="https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=600&amp;h=600"
+              onerror="this.onerror=null;this.src='/dental/img/lucia.svg'"
+              alt="Portrait of Dr. Lucía Robles"
+              width="300" height="300" loading="lazy"
+            />
+            <h3>Dr. Lucía Robles</h3>
+            <p class="person-role">Medical director · Implants &amp; aesthetics · Lic. 28004512</p>
+            <p class="person-line">“My favourite part of the job: when you stop covering your mouth to laugh.”</p>
+          </li>
+          <li class="person">
+            <img
+              src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=600&amp;h=600"
+              onerror="this.onerror=null;this.src='/dental/img/jaime.svg'"
+              alt="Portrait of Dr. Jaime Ortega"
+              width="300" height="300" loading="lazy"
+            />
+            <h3>Dr. Jaime Ortega</h3>
+            <p class="person-role">Orthodontics &amp; children's dentistry · Lic. 28007821</p>
+            <p class="person-line">“With kids, the first visit is a game. Literally.”</p>
+          </li>
+          <li class="person">
+            <img
+              src="https://images.pexels.com/photos/6627545/pexels-photo-6627545.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=600&amp;h=600"
+              onerror="this.onerror=null;this.src='/dental/img/sara.svg'"
+              alt="Portrait of Sara Medina, dental hygienist"
+              width="300" height="300" loading="lazy"
+            />
+            <h3>Sara Medina</h3>
+            <p class="person-role">Dental hygienist · 11 years at the clinic</p>
+            <p class="person-line">“I tell you before every step. Nobody gets surprises here.”</p>
+          </li>
+        </ul>
+        <p class="metrics-note">Fictional photos and names for this demo: on the real site, the real team.</p>
+      </section>
+
+      <!-- 06 · REVIEWS: Google-style, including one that isn't perfect -->
+      <section id="opiniones" class="block reviews" aria-labelledby="reviews-title">
+        <h2 id="reviews-title" class="section-title">What patients say</h2>
+        <div class="reviews-head">
+          <p class="reviews-score"><b>4.8</b><span class="stars" aria-hidden="true">★★★★★</span></p>
+          <p class="reviews-count">127 reviews on Google <span class="todo-chip">Demo data</span></p>
+        </div>
+        <ul class="reviews-grid">
+          <li class="review">
+            <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+            <p>“I'd avoided the dentist for two years, dreading a surprise bill. Here they told me the price before touching a single tooth.”</p>
+            <p class="review-by">María G. · 2 weeks ago</p>
+          </li>
+          <li class="review">
+            <p class="review-stars" aria-label="4 out of 5 stars">★★★★☆</p>
+            <p>“The care is superb and my daughter's braces are going great. One day I waited 15 minutes because they took an emergency first — fair enough, but that's why it's not 5.”</p>
+            <p class="review-by">Carlos R. · 1 month ago</p>
+          </li>
+          <li class="review">
+            <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+            <p>“I booked from the sofa at eleven on a Sunday night and they called me first thing Monday. That's how it should work.”</p>
+            <p class="review-by">Lucía P. · 3 months ago</p>
+          </li>
+        </ul>
+        <p class="reviews-link">
+          <a href="https://www.google.com/maps/search/cl%C3%ADnica+dental+chamber%C3%AD+madrid" target="_blank" rel="noopener">See all the reviews on Google ↗</a>
+        </p>
+      </section>
+
+      <!-- 07 · ONLINE BOOKING: treatment → slot → details. Three steps and done. -->
+      <section id="cita" class="booking" aria-labelledby="booking-title">
+        <div class="booking-inner">
+          <h2 id="booking-title">Book in under a minute</h2>
+          <p class="booking-sub">
+            Choose what you need, the slot that suits you, and leave us your phone number.
+            <strong>No commitment</strong> — we confirm with you before writing anything in.
+          </p>
+
+          <form id="booking-form" novalidate>
+            <fieldset class="bk-step">
+              <legend><span class="bk-num">1</span> What do you need?</legend>
+              <div class="chips" id="bk-treatments" role="radiogroup" aria-label="Treatment">
+                <!-- filled in from main.js -->
+              </div>
+            </fieldset>
+
+            <fieldset class="bk-step">
+              <legend><span class="bk-num">2</span> When suits you?</legend>
+              <div class="chips chips-days" id="bk-days" role="radiogroup" aria-label="Day"></div>
+              <div class="chips" id="bk-times" role="radiogroup" aria-label="Time"></div>
+            </fieldset>
+
+            <fieldset class="bk-step">
+              <legend><span class="bk-num">3</span> Your details</legend>
+              <div class="fields">
+                <label>
+                  <span>Your name</span>
+                  <input type="text" name="name" id="bk-name" autocomplete="name" required />
+                  <small class="field-err" id="err-name" role="alert"></small>
+                </label>
+                <label>
+                  <span>Your phone</span>
+                  <input type="tel" name="phone" id="bk-phone" inputmode="tel" autocomplete="tel" required />
+                  <small class="field-err" id="err-phone" role="alert"></small>
+                </label>
+                <label class="field-wide">
+                  <span>What's going on? <em>(optional)</em></span>
+                  <input type="text" name="notes" id="bk-notes" />
+                </label>
+              </div>
+              <!-- GDPR: two purposes, two boxes. Managing your visit ≠ sending you things. -->
+              <label class="consent">
+                <input type="checkbox" id="bk-consent" required />
+                <span>I've read the <a href="/dental/en/legal.html#privacidad">privacy policy</a> and agree to my details being used only to manage this appointment.</span>
+              </label>
+              <label class="consent">
+                <input type="checkbox" id="bk-remind" />
+                <span>Send me the appointment reminder and the yearly check-up nudge on WhatsApp.</span>
+              </label>
+            </fieldset>
+
+            <button type="submit" class="btn btn-cta btn-block" id="bk-submit">
+              <span class="btn-label">Request this appointment</span>
+            </button>
+            <p class="reassure" id="bk-sla">We call you today before 20:00 to confirm.</p>
+            <p class="form-msg" id="bk-msg" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="booking-done" id="booking-done" hidden>
+            <div class="done-mark" aria-hidden="true">✓</div>
+            <h3>Appointment requested!</h3>
+            <p id="booking-done-detail"></p>
+            <p class="done-note">We'll send a reminder 48 h and 3 h before, with a one-tap option to reschedule.</p>
+          </div>
+
+          <p class="booking-alt">
+            Rather talk to a person? <a href="tel:+34912345678">Call us</a> or
+            <a href="https://wa.me/34612345678?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Cl%C3%ADnica%20Dental%20Robles" target="_blank" rel="noopener">message us on WhatsApp</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- 08 · HOW TO FIND US -->
+      <section id="contacto" class="block visitus" aria-labelledby="visit-title">
+        <h2 id="visit-title" class="section-title">Where we are</h2>
+        <div class="visit-grid">
+          <div class="visit-info">
+            <p class="visit-addr"><strong>Calle de Trafalgar, 12</strong><br />28010 Madrid — Chamberí</p>
+            <ul class="visit-how">
+              <li><b>Metro</b> Iglesia (L1), 3 min · Quevedo (L2), 6 min</li>
+              <li><b>Bus</b> Lines 3, 37 and 149</li>
+              <li><b>Car</b> Public car park at Trafalgar 22, 100 m away</li>
+            </ul>
+            <p class="visit-hours"><b>Hours</b> Monday to Friday, 9:30–20:00</p>
+            <p class="visit-contact">
+              <a href="tel:+34912345678">912 345 678</a> ·
+              <a href="mailto:hola@clinicadentalrobles.es">hola@clinicadentalrobles.es</a>
+            </p>
+          </div>
+          <!-- Map as a static facade: loads nothing until you click -->
+          <a
+            class="map-facade"
+            href="https://www.google.com/maps/dir/?api=1&amp;destination=Calle+de+Trafalgar+12%2C+28010+Madrid"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open directions to the clinic in Google Maps"
+          >
+            <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="400" height="260" fill="#eef3ee" />
+              <path d="M0 60 L400 40" stroke="#d8e2d8" stroke-width="14" />
+              <path d="M0 150 L400 130" stroke="#d8e2d8" stroke-width="20" />
+              <path d="M0 230 L400 215" stroke="#d8e2d8" stroke-width="12" />
+              <path d="M90 0 L110 260" stroke="#d8e2d8" stroke-width="16" />
+              <path d="M240 0 L255 260" stroke="#cfdccf" stroke-width="22" />
+              <path d="M330 0 L340 260" stroke="#d8e2d8" stroke-width="12" />
+              <rect x="120" y="66" width="46" height="34" rx="4" fill="#dde8dd" />
+              <rect x="272" y="152" width="52" height="40" rx="4" fill="#dde8dd" />
+              <rect x="30" y="160" width="40" height="30" rx="4" fill="#dde8dd" />
+              <circle cx="248" cy="140" r="26" fill="#2e6e59" opacity="0.15" />
+              <path d="M248 108 c-14 0 -24 10 -24 23 c0 16 24 37 24 37 s24 -21 24 -37 c0 -13 -10 -23 -24 -23 Z" fill="#c05a1e" />
+              <circle cx="248" cy="130" r="9" fill="#fff" />
+            </svg>
+            <span class="map-open">Get directions ↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 09 · FAQ -->
+      <section id="faq" class="block faq" aria-labelledby="faq-title">
+        <h2 id="faq-title" class="section-title">The questions everyone asks</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Is the first visit really free?</summary>
+            <p>Really. We examine you, explain what's going on and give you a fixed written quote. If you decide to do nothing, nothing happens and you pay nothing.</p>
+          </details>
+          <details>
+            <summary>Will it hurt?</summary>
+            <p>Usually not: with modern anaesthesia most treatments don't hurt. If something might be uncomfortable, we tell you before — not during. And if you want to stop at any point, raise your hand and we stop.</p>
+          </details>
+          <details>
+            <summary>Can I pay in instalments?</summary>
+            <p>Yes: financing up to 24 months, interest-free. An implant, for example, comes to €37/month. We work it out for you at the first visit, with no commitment.</p>
+          </details>
+          <details>
+            <summary>What if the final price changes?</summary>
+            <p>The quote we give you after the diagnosis is fixed: that's the price, unless you decide to change the treatment. The "from" prices on this site are guides so you can compare without calling.</p>
+          </details>
+        </div>
+      </section>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is the first visit really free?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Really. We examine you, explain what's going on and give you a fixed written quote. If you decide to do nothing, you pay nothing." }
+            },
+            {
+              "@type": "Question",
+              "name": "Will it hurt?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Usually not: with modern anaesthesia most treatments don't hurt. If something might be uncomfortable, we tell you before — not during." }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I pay in instalments?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes: financing up to 24 months, interest-free. An implant comes to €37/month." }
+            },
+            {
+              "@type": "Question",
+              "name": "What if the final price changes?",
+              "acceptedAnswer": { "@type": "Answer", "text": "The quote after the diagnosis is fixed. The 'from' prices on the site are guides so you can compare without calling." }
+            }
+          ]
+        }
+      </script>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-name">🦷 Clínica Dental Robles</p>
+          <p>Calle de Trafalgar, 12 · 28010 Madrid<br />Monday to Friday, 9:30–20:00</p>
+        </div>
+        <div>
+          <p><a href="tel:+34912345678">912 345 678</a></p>
+          <p><a href="mailto:hola@clinicadentalrobles.es">hola@clinicadentalrobles.es</a></p>
+        </div>
+        <div class="footer-legal">
+          <p>
+            <a href="/dental/en/legal.html#aviso">Legal notice</a> ·
+            <a href="/dental/en/legal.html#privacidad">Privacy</a> ·
+            <a href="/dental/en/legal.html#cookies">Cookies</a>
+          </p>
+          <p>© <span id="year">2026</span> Clínica Dental Robles</p>
+        </div>
+      </div>
+      <p class="footer-demo">
+        Example site with fictional data, designed by
+        <a href="https://trustthewizard.com/en/" target="_blank" rel="noopener">Conjure ✦</a>
+      </p>
+    </footer>
+
+    <!-- Fixed bar on mobile: the patient picks the channel, never the other way round -->
+    <nav class="mobile-bar" aria-label="Quick contact">
+      <a href="tel:+34912345678"><span aria-hidden="true">☏</span>Call</a>
+      <a href="https://wa.me/34612345678?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Cl%C3%ADnica%20Dental%20Robles" target="_blank" rel="noopener"><span aria-hidden="true">✆</span>WhatsApp</a>
+      <a class="mobile-bar-cta" href="#cita"><span aria-hidden="true">📅</span>Book a visit</a>
+    </nav>
+
+    <script src="/dental/main.js?v=2"></script>
+  </body>
+</html>

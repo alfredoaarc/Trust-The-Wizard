@@ -1,5 +1,20 @@
 # Fase 1 — Productos candidatos
 
+> ## ⚠️ REFUTADO — NO ACTÚES SOBRE ESTE DOCUMENTO
+>
+> **Fecha de refutación: 8 ago 2026, mismo día.** El top 3 está muerto y con pruebas:
+>
+> - **Acuario de arrecife:** Bulk Reef Supply, un retailer de equipo, **regala** una guía completa para principiantes, una serie de 5 minutos, un centro de aprendizaje y un canal de YouTube. Su negocio es vender hardware; el contenido es su captación. `[CONCORDANTE]`
+> - **Furgoneta/RV:** Explorist.life vende los esquemas de cableado a **10 $**, no a 297 $, y con eso financia contenido gratuito. El mercado ya tarifó la categoría **30 veces por debajo** de mi supuesto. `[CONCORDANTE]`
+>
+> **El error estructural, que invalida los 12 candidatos y no solo los 3 primeros:** filtré por "gasto adyacente alto" como prueba de disposición a pagar. Pero gasto adyacente alto implica retailers grandes vendiendo equipo caro, y esos retailers **regalan el contenido educativo porque es su canal de captación de clientes**. Cuanto más cara la afición, mejor financiado está el contenido gratuito que compite contigo. **El criterio que usé para elegir buenos nichos era, invertido, un detector de nichos con buen contenido gratis.**
+>
+> **El error de método, que es peor:** busqué categorías, no huecos. "Aficiones caras" es una lista que genera cualquiera en cinco minutos. Si algo lleva diez años ahí sin explotar, normalmente no es un hueco: es un mercado que otros ya miraron y descartaron. **Un hueco real casi siempre es nuevo** — existe porque algo cambió y el contenido no ha llegado aún.
+>
+> **Qué sigue siendo válido de este documento:** toda la aritmética (tabla de CPC por vertical, suelo de 297 $, perfil de riesgo de una sola venta) y el filtro nuevo que faltaba: **descartar todo nicho donde un fabricante o retailer tenga incentivo económico para regalar el contenido.**
+>
+> Sustituido por la Fase 1 rehecha con método de recencia.
+
 **Fecha:** 8 de agosto de 2026
 **Modelo:** producto digital · mercado USA · Google Search · construido entre los dos · contenido y activos, sin código
 **Presupuesto:** 300 € (~330 $), sin segunda ronda

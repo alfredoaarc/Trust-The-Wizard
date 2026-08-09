@@ -1,7 +1,12 @@
 # Modelo de datos
 
-> Fase 0. Diseño pendiente de validación. El SQL es ilustrativo del esquema previsto,
-> no las migraciones definitivas: esas nacen en la slice que estrena cada tabla.
+> **Las migraciones de cuentas, sitios y facturación ya existen y están verificadas
+> contra un PostgreSQL real**: `packages/db/migrations/`. Arranca la base con
+> `packages/db/scripts/start-test-db.sh` y ejecuta `pnpm test packages/db` — 41 tests
+> que comprueban el aislamiento RLS entre organizaciones, la numeración de facturas sin
+> huecos y la inmutabilidad.
+>
+> Analítica y moderación siguen siendo diseño: nacerán en la slice que las estrene.
 
 ## Principios
 
@@ -493,7 +498,7 @@ $$;
 | `custom_domains` | miembro | owner/admin | owner/admin | owner/admin |
 | `plans`, `plan_limits` | **público** (para la web de precios) | — | — | — |
 | `subscriptions` | miembro | servicio (webhook Stripe) | servicio | — |
-| `billing_profiles` | miembro | owner/admin | owner/admin | — |
+| `billing_profiles` | **owner/admin** | owner/admin | owner/admin | — |
 | `invoices`, `invoice_lines` | miembro | **servicio** | **nadie** | **nadie** |
 | `invoice_sequences`, `invoice_registry` | — | servicio | nadie | nadie |
 | `usage_counters` | miembro | servicio | servicio | — |
@@ -527,6 +532,10 @@ Notas:
   que hace que un panel caído no tumbe los sitios servidos.
 - **El rol staff** se identifica por un claim del JWT (`app_metadata.staff = true`),
   no por pertenencia a una organización.
+- **`billing_profiles` es de owner y admin, no de cualquier miembro.** En una
+  organización personal —freelance, que es la mayoría de nuestros clientes— el
+  domicilio fiscal es el domicilio particular del titular. Un colaborador invitado para
+  publicar una web no tiene por qué verlo. Se cambió al escribir el test de RLS.
 - `abuse_reports` admite `INSERT` anónimo con rate limit en el borde. Denunciar abuso
   no puede exigir cuenta.
 

@@ -1,6 +1,11 @@
 # Plan de entrega por vertical slices
 
-> Fase 0. Pendiente de validación del product owner.
+> Fase 0 entregada. Pendiente de validación del product owner.
+>
+> **Estado real:** además de la planificación se ha adelantado la lógica pura que no
+> depende de credenciales externas ni de las decisiones abiertas. Marcado ✅ abajo.
+> Lo que falta de cada slice es siempre la parte que necesita Supabase, Cloudflare o
+> Stripe, más la interfaz.
 
 ## Cómo se entrega
 
@@ -31,7 +36,7 @@ Todo lo demás mantiene el orden del brief. **Dime si lo cambias.**
 
 ---
 
-## Slice 0 — Andamiaje
+## Slice 0 — Andamiaje ✅
 
 **No entrega valor de usuario.** Existe para que las demás no arrastren fontanería.
 
@@ -45,7 +50,8 @@ Todo lo demás mantiene el orden del brief. **Dime si lo cambias.**
 - Commits convencionales en inglés, linter que impide `apps/serve → packages/db`
   ([ADR-0003](adr/0003-kv-cache-postgres-fuente-de-verdad.md)).
 
-**Terminado cuando:** `pnpm dev` levanta la web en español y `pnpm test` pasa en CI.
+**Estado:** hecho salvo `apps/web`, `apps/serve` y Playwright, que necesitan las
+decisiones abiertas y credenciales. `pnpm test` y `pnpm typecheck` funcionan.
 
 ---
 
@@ -90,7 +96,7 @@ pública con HTTPS **en menos de 30 s**. Vuelve a subir otro archivo y la URL es
 
 ---
 
-## Slice 3 — Ingesta de zip con todas las validaciones de seguridad
+## Slice 3 — Ingesta de zip con todas las validaciones de seguridad ⬤ núcleo hecho
 
 - `packages/ingest`: validar → extraer → escanear → escribir, con abortos tempranos.
 - **Zip slip**, **zip bomb** (ratio, número de entradas, tamaño total, profundidad),
@@ -109,8 +115,11 @@ pública con HTTPS **en menos de 30 s**. Vuelve a subir otro archivo y la URL es
 `zip-slip.zip`, `zip-bomb.zip`, `symlink-escape.zip`, `nested-no-index.zip`,
 `fake-extension.zip` (un `.exe` llamado `.png`), `deep-nesting.zip`.
 
+**Estado:** `packages/ingest` completo y probado contra 17 fixtures reales (más de los
+seis previstos). Falta conectarlo a R2 y a la interfaz de arrastre.
+
 **Terminado cuando:** el PO sube un zip de una web real de varias páginas y funciona;
-los seis fixtures se rechazan con un mensaje en español que se entiende.
+los fixtures se rechazan con un mensaje en español que se entiende.
 
 ---
 
@@ -129,7 +138,7 @@ en segundos; renombra el sitio y la URL antigua redirige.
 
 ---
 
-## Slice 5 — Cuotas y planes
+## Slice 5 — Cuotas y planes ⬤ núcleo hecho
 
 - `plans`, `plan_limits`, `usage_counters`. **Los límites viven en BD y se ajustan sin
   desplegar.**
@@ -140,6 +149,9 @@ en segundos; renombra el sitio y la URL antigua redirige.
   gratuito** (también para PDF), **ediciones ilimitadas**, **escalón de 3 proyectos**,
   **nunca modo preview destructivo**.
 - Página de precios en español, con IVA incluido para particulares.
+
+**Estado:** `packages/quotas` resuelve límites y produce el mensaje. Falta la tabla
+`plan_limits` en Supabase y la interfaz.
 
 **Terminado cuando:** el PO intenta subir un archivo de 34 MB en plan gratuito y recibe
 el mensaje exacto de [ADR-0007](adr/0007-degradacion-sin-destruccion.md) **antes** de
@@ -185,7 +197,7 @@ válido, habiendo seguido solo las instrucciones de pantalla.
 
 ---
 
-## Slice 8 — Facturación española completa 🛑 **PUNTO DE PARADA**
+## Slice 8 — Facturación española completa 🛑 **PUNTO DE PARADA** ⬤ matriz lista
 
 **Antes de escribir código que cobre dinero**, se entrega y se valida:
 
@@ -193,7 +205,13 @@ válido, habiendo seguido solo las instrucciones de pantalla.
 > implementada como tabla de tests de Vitest, verde**, más la lista de
 > [lo que hay que verificar](facturacion.md#8-resumen-de-lo-que-hay-que-verificar-antes-de-cobrar).
 
+**Ya está implementada y en verde:** `packages/billing/src/tax-treatment.test.ts`.
+Ejecútala con `pnpm test packages/billing`.
+
 El PO la revisa con su asesoría. **Hasta esa validación no se implementa la emisión.**
+Nada de Stripe, PDF ni numeración hasta entonces — y no por prudencia genérica: las
+facturas son inmutables, así que un tratamiento equivocado se corrige emitiendo una
+rectificativa a un cliente que ya la mandó a su gestoría.
 
 Después:
 

@@ -14,9 +14,25 @@ GitHub Pages desde `../docs/`. **No la toques.** Ver
 
 ## Estado actual
 
-**Fase 0 — planificación, pendiente de validación del product owner.** No hay código de
-producción todavía. No empieces a implementar hasta que el PO valide los documentos de
-`docs/`.
+Fase 0 entregada, y adelantada la lógica pura que no depende de credenciales externas
+ni de las decisiones abiertas del PO.
+
+| Paquete | Estado |
+|---|---|
+| `packages/config` | Dominios, límites duros de seguridad, tabla MIME |
+| `packages/i18n` | Formatos españoles, con tests |
+| `packages/ingest` | **Pipeline de seguridad completo**, con fixtures maliciosos reales |
+| `packages/billing` | **Matriz fiscal + validación de NIF/CIF/NIE**. Solo lógica pura |
+| `packages/quotas` | Límites de plan y comprobación previa a la subida |
+
+`pnpm test` → 196 tests en verde. `tsc --noEmit` limpio en los cinco paquetes.
+
+**Lo que NO existe todavía, y a propósito:** `apps/web`, `apps/serve`, `packages/db`.
+Necesitan cuentas de Supabase, Cloudflare y Stripe que aún no hay, y las cuatro
+decisiones abiertas del PO (ver `docs/PLAN-DE-ENTREGA.md`, final).
+
+**No implementes emisión de facturas, Stripe ni PDF** hasta que el PO valide la matriz
+fiscal con su asesoría. Es el punto de parada nº 2.
 
 ## Idioma — no es una preferencia, es el producto
 
@@ -119,17 +135,21 @@ El pipeline de ingesta se prueba con archivos maliciosos reales en el repositori
 
 ## Comandos
 
-`TODO`: se rellenan en la Slice 0. Previstos, todos desde `magic-upload/`:
+Todos desde `magic-upload/`.
 
 ```bash
 pnpm install
-pnpm dev            # apps/web + apps/serve en local
-pnpm test           # Vitest
-pnpm test:e2e       # Playwright
-pnpm lint
-pnpm typecheck
-pnpm db:migrate
+pnpm test           # Vitest. Genera los fixtures antes (pretest)
+pnpm fixtures       # Regenera los ZIP maliciosos de packages/ingest
+pnpm typecheck      # tsc --noEmit en todos los paquetes
+pnpm test packages/billing    # Solo la matriz fiscal (punto de parada nº 2)
 ```
+
+Pendientes hasta que existan `apps/web` y `apps/serve`: `pnpm dev`, `pnpm test:e2e`,
+`pnpm db:migrate`.
+
+Los fixtures maliciosos **no se versionan**: se generan con `pnpm fixtures` (requiere
+Python 3). El motivo está en `packages/ingest/scripts/build-fixtures.py`.
 
 ## Placeholders pendientes
 

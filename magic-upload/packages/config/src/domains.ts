@@ -29,9 +29,18 @@ export const CONTENT_DOMAIN = "mgup.site";
 // TODO: verificar — pendiente de elegir proveedor de email transaccional en la UE.
 export const MAIL_DOMAIN = `mail.${APP_DOMAIN}`;
 
-/** Región de datos. Todo dato personal vive en la UE (ver ARCHITECTURE.md §8). */
-// TODO: fijar — Fráncfort o Irlanda.
-export const DATA_REGION = "eu" as const;
+/**
+ * Región de datos. Todo dato personal vive en la UE (ver ARCHITECTURE.md §8).
+ *
+ * Fráncfort, decidido por el product owner: mejor conectividad desde España y es la
+ * región europea con más servicios disponibles.
+ *
+ * Cambiarla después NO es una edición de configuración: migrar de región con datos de
+ * clientes dentro exige ventana de parada y un plan de migración. Si alguien lo
+ * propone, es un proyecto, no un ajuste.
+ */
+export const DATA_REGION = "eu-central-1" as const;
+export const DATA_REGION_LABEL = "Fráncfort, Alemania";
 
 /** Longitud mínima y máxima de un subdominio de usuario. */
 export const SUBDOMAIN_MIN_LENGTH = 3;

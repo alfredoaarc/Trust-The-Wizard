@@ -23,6 +23,7 @@ import {
   contentTypeFor,
   extensionOf,
 } from "@magic-upload/config";
+import { isOfficeDocument, renderCoverPage } from "./cover-page.js";
 import { planEntryFile } from "./entry-file.js";
 import { ingestErrors } from "./errors.js";
 import { isZip, looksLikeHtml, sniffExecutable } from "./magic.js";
@@ -217,9 +218,32 @@ export function ingestSingleFile(filename: string, buf: Uint8Array): IngestResul
   // `…/propuesta-final-v3-DEFINITIVA.html`.
   const isHtml = extension === ".html" || extension === ".htm" || looksLikeHtml(buf);
   const path = isHtml ? "index.html" : sanitizeFilename(filename);
+  const file: IngestedFile = { path, bytes: buf, contentType: contentTypeFor(path) };
+
+  // Los documentos de ofimática se sirven como descarga, pero con una portada delante:
+  // la raíz del sitio es un HTML que dice qué es y ofrece el botón. El visitante es el
+  // cliente de nuestro usuario y no puede caer en una descarga sin contexto.
+  if (isOfficeDocument(path)) {
+    const cover = renderCoverPage({ filename: path, bytes: buf.length });
+
+    return {
+      files: [
+        file,
+        {
+          path: "index.html",
+          bytes: new TextEncoder().encode(cover),
+          contentType: contentTypeFor("index.html"),
+        },
+      ],
+      entryFile: "index.html",
+      totalBytes: buf.length,
+      fileCount: 1, // la portada la generamos nosotros; no cuenta como archivo del usuario
+      hoistedFrom: "",
+    };
+  }
 
   return {
-    files: [{ path, bytes: buf, contentType: contentTypeFor(path) }],
+    files: [file],
     entryFile: path,
     totalBytes: buf.length,
     fileCount: 1,

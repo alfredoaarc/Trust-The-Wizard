@@ -1,3 +1,4 @@
+export * from "./cover-page.js";
 export * from "./errors.js";
 export * from "./entry-file.js";
 export * from "./magic.js";

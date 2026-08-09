@@ -8,3 +8,4 @@
 export * from "./domains.js";
 export * from "./limits.js";
 export * from "./mime.js";
+export * from "./subdomains.js";

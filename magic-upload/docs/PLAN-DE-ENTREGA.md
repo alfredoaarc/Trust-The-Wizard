@@ -325,12 +325,12 @@ constructor con IA.
 
 **Bloqueante antes de la Slice 2:**
 
-| # | Decisión |
-|---|---|
-| 1 | Dominio de contenido a registrar (`mgup.site` es marcador) y dominio de app |
-| 2 | Región de Supabase: Fráncfort o Irlanda |
-| 3 | `.docx`/`.pptx`/`.xlsx`: ¿conversión a PDF, visor de terceros, o descarga directa con portada? |
-| 4 | `.php` dentro de un zip: ¿rechazo explícito (mi recomendación) o almacenado inerte? |
+| # | Decisión | Estado |
+|---|---|---|
+| 1 | Dominio de contenido y dominio de app | **Se sigue con placeholders**; hay que registrarlos antes de que algo esté en vivo |
+| 2 | Región de Supabase | ✅ **Fráncfort (`eu-central-1`)** |
+| 3 | `.docx`/`.pptx`/`.xlsx` | ✅ **Descarga con portada en español** |
+| 4 | `.php` dentro de un zip | ✅ **Rechazo explícito** |
 
 **Antes de la Slice 7:** coste de Cloudflare for SaaS frente a "dominios ilimitados".
 

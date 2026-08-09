@@ -286,7 +286,7 @@ cuenta de contenido acaba en listas de bloqueo, el negocio sigue en pie.
 
 | Dato | Dónde vive | Región |
 |---|---|---|
-| Cuentas, sitios, facturas, analítica | Supabase Postgres | UE (Fráncfort o Irlanda) — `TODO: fijar` |
+| Cuentas, sitios, facturas, analítica | Supabase Postgres | **Fráncfort (`eu-central-1`)** |
 | Bytes de los sitios | Cloudflare R2, jurisdicción UE | UE |
 | Metadatos de servido | Cloudflare KV | Global (replicado) — solo id de sitio y banderas, sin datos personales |
 | Datos de pago | Stripe | UE / EE. UU. — subencargado, va en la lista pública |
@@ -302,17 +302,20 @@ revisión por asesoría jurídica**. Donde no haya certeza normativa va
 
 ## 9. Preguntas abiertas para el product owner
 
-1. **`.docx`, `.pptx`, `.xlsx`** están en el alcance de la slice de publicación, pero
-   servirlos estáticamente es solo una descarga. ¿Los convertimos a PDF en la ingesta
-   (añade una dependencia pesada), los mostramos con un visor de terceros, o el MVP se
-   limita a descarga directa con una página de portada decente?
-2. **`.php` en un zip**: ¿lo rechazamos con un error explícito ("no ejecutamos código,
-   y aquí está por qué") o lo almacenamos inerte? Recomiendo rechazarlo: decir que no
-   claramente es parte del posicionamiento.
+1. ~~`.docx`, `.pptx`, `.xlsx`~~ — **decidido: descarga con portada.** Se publican y
+   se descargan, con una página de portada en español que dice qué es, cuánto pesa y
+   ofrece el botón. Sin convertir a PDF: exigiría LibreOffice headless o un servicio
+   externo, y eso es dependencia pesada más un subencargado. Queda para v2.
+2. ~~`.php` en un zip~~ — **decidido: rechazo explícito**, con un mensaje que explica
+   que no ejecutamos código y por qué eso es lo que hace el producto instantáneo.
+   Guardarlo inerte crearía la expectativa de que algún día se ejecutará.
 3. **Coste de Cloudflare for SaaS** frente a "dominios ilimitados" en el plan Agencia
-   (§4).
+   (§4). Pendiente, bloqueante antes de la slice 7.
 4. **Proveedor de email transaccional en la UE** — condiciona la lista de
-   subencargados.
+   subencargados. Pendiente.
+5. **`index.html` ausente con un único HTML en el ZIP**: hoy damos error nombrándolo.
+   ¿Lo usamos como página de inicio automáticamente, avisando? Quita fricción al
+   usuario no técnico. Pendiente de decisión de producto.
 
 ## Placeholders pendientes de decidir
 
@@ -322,5 +325,5 @@ Centralizados en `packages/config`; cambiarlos será una variable, no un refacto
 |---|---|---|
 | `magicupload.es` | App, marketing, panel | `TODO: verificar` registro |
 | `mgup.site` | Contenido de usuario | `TODO: verificar` registro |
-| Región Supabase | Fráncfort o Irlanda | Pendiente |
+| Región Supabase | ~~Fráncfort o Irlanda~~ | **Decidido: Fráncfort** |
 | Precios (0 / 8,99 / 19 / 39 €) | Orientativos según brief | Pendientes de confirmar |

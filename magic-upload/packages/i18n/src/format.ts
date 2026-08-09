@@ -117,6 +117,21 @@ export function formatBytes(bytes: number): string {
 }
 
 /**
+ * Sustituye los espacios duros por espacios normales.
+ *
+ * `Intl` inserta U+00A0 (espacio duro) y U+202F (espacio fino duro) antes del símbolo
+ * de moneda y del de porcentaje. Es lo correcto tipográficamente —evita que «8,99» y
+ * «€» acaben en líneas distintas— pero rompe cualquier comparación con un literal
+ * escrito a mano.
+ *
+ * Úsalo para comparar y para buscar, **nunca para mostrar**: al mostrar quieres el
+ * espacio duro.
+ */
+export function normalizeSpaces(text: string): string {
+  return text.replace(/[  ]/g, " ");
+}
+
+/**
  * Lista en español con «y» final: «Dinahosting, Raiola y Webempresa».
  * `Intl.ListFormat` lo hace bien y evita el clásico «a, b, and c» traducido a medias.
  */

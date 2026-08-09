@@ -9,13 +9,8 @@ import {
   formatPercent,
   formatRelative,
   formatTime,
+  normalizeSpaces as nbsp,
 } from "./format.js";
-
-/**
- * El espacio que Intl inserta antes del símbolo de moneda es un espacio duro
- * (U+00A0), no un espacio normal. Normalizamos para que las aserciones se lean.
- */
-const nbsp = (s: string) => s.replace(/ /g, " ").replace(/ /g, " ");
 
 describe("formatEuros", () => {
   it("pone el símbolo detrás, con espacio, y usa coma decimal", () => {

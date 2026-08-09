@@ -21,6 +21,8 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@22.20.1)
 
+  packages/billing: {}
+
   packages/config: {}
 
   packages/i18n: {}
@@ -30,6 +32,12 @@ importers:
       '@magic-upload/config':
         specifier: workspace:*
         version: link:../config
+      '@magic-upload/i18n':
+        specifier: workspace:*
+        version: link:../i18n
+
+  packages/quotas:
+    dependencies:
       '@magic-upload/i18n':
         specifier: workspace:*
         version: link:../i18n

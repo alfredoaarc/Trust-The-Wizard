@@ -25,6 +25,15 @@ importers:
 
   packages/i18n: {}
 
+  packages/ingest:
+    dependencies:
+      '@magic-upload/config':
+        specifier: workspace:*
+        version: link:../config
+      '@magic-upload/i18n':
+        specifier: workspace:*
+        version: link:../i18n
+
 packages:
 
   '@esbuild/aix-ppc64@0.21.5':

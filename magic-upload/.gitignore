@@ -9,3 +9,7 @@ coverage/
 .wrangler/
 test-results/
 playwright-report/
+
+# Fixtures maliciosos: se generan con `pnpm fixtures`, no se versionan.
+# Motivo en packages/ingest/scripts/build-fixtures.py
+packages/ingest/fixtures/

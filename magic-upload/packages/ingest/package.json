@@ -1,0 +1,19 @@
+{
+  "name": "@magic-upload/ingest",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "fixtures": "node scripts/build-fixtures.mjs"
+  },
+  "dependencies": {
+    "@magic-upload/config": "workspace:*",
+    "@magic-upload/i18n": "workspace:*"
+  }
+}

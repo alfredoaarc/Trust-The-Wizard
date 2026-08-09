@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "typecheck": "turbo run typecheck",
     "lint": "turbo run lint",
-    "fixtures": "node packages/ingest/scripts/build-fixtures.mjs"
+    "fixtures": "python3 packages/ingest/scripts/build-fixtures.py",
+    "pretest": "pnpm run fixtures"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

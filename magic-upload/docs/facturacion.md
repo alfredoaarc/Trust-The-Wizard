@@ -67,19 +67,35 @@ debe primar el domicilio declarado.
   operación quede no sujeta a IVA sin repercutir IGIC, correspondiendo la
   autoliquidación al cliente. **No lo damos por bueno.** `TODO: verificar con asesor`.
 
-### Cómo se valida
+### Cómo se valida — **ya implementado, listo para revisar**
 
 `packages/billing` expone una función pura:
 
 ```ts
-resolveTaxTreatment(profile: BillingProfile, at: Date): TaxTreatment
+resolveTaxTreatment(subject: TaxSubject, context: TaxContext): TaxTreatment
 ```
 
-Los ocho casos de la tabla son **ocho casos de una tabla de tests de Vitest**, más los
-límites: VIES caído, NIF con formato válido pero dígito de control incorrecto, cliente
-que cambia de zona entre periodos, y empresa UE cuyo VIES pasa de válido a inválido.
+Los ocho casos de la tabla son las ocho filas de la constante `MATRIZ` en
+[`packages/billing/src/tax-treatment.test.ts`](../packages/billing/src/tax-treatment.test.ts),
+que se lee de izquierda a derecha como una hoja de cálculo: cliente → zona → qué se le
+cobra. Alrededor hay 30 casos más de contorno: VIES caído frente a VIES que rechaza,
+los cuatro territorios fuera del IVA, con y sin alta en OSS, y el Reino Unido.
 
-Esa tabla de tests, verde y revisada, **es el entregable del punto de parada**.
+**Esa tabla verde es el entregable del punto de parada.** Ejecútala con
+`pnpm test packages/billing`.
+
+Tres salvaguardas que hacen que el aviso no sea decorativo:
+
+- Toda operación en Canarias, Ceuta o Melilla devuelve `requiresAdvisorReview: true`,
+  que **debe impedir la emisión automática** hasta que la asesoría confirme el
+  tratamiento.
+- Toda operación OSS devuelve también `requiresAdvisorReview: true` mientras la tabla
+  de tipos por país no esté verificada.
+- Si el país del cliente no tiene tipo configurado, la función **lanza** en lugar de
+  caer a un valor por defecto. Emitir con un tipo inventado sería peor que parar.
+
+Y `validateSpanishTaxId` valida NIF, CIF y NIE **con dígito de control**: un test
+comprueba que de las 26 letras posibles para `12345678` solo se acepta la correcta.
 
 ## 3. Requisitos de la factura (RD 1619/2012)
 
@@ -224,3 +240,12 @@ indefinido, y si hacen falta series separadas por régimen fiscal (p. ej. OSS).
 | 7 | Motivos de rectificación admitidos en autoservicio | §5 |
 | 8 | Bizum: ausencia de recurrencia y límite de 5.000 € | §6 |
 | 9 | Reinicio anual de series y necesidad de series por régimen | §7 |
+| 10 | **Tabla de tipos generales de IVA de los 27 estados** (OSS) | `tax-treatment.ts` |
+| 11 | **Regla de «uso y disfrute efectivo»** (art. 70.Dos LIVA): puede volver a sujetar al IVA español servicios prestados fuera de la UE | `tax-treatment.ts` |
+| 12 | **El código postal como criterio de zona fiscal**, o si prima el domicilio declarado cuando discrepan | `tax-zone.ts` |
+| 13 | **Territorios especiales de otros estados UE** (Åland, DOM franceses, Livigno, Büsingen): hoy tratados como UE normal | `tax-zone.ts` |
+| 14 | **Longitudes de NIF-IVA por país** usadas en la comprobación de formato | `tax-id.ts` |
+
+Los cinco últimos han salido al implementar la matriz y no estaban en el análisis
+inicial. El 11 y el 13 son los que más pueden doler: ambos producen facturas mal
+emitidas en casos que hoy pasan silenciosamente por la rama genérica.

@@ -24,12 +24,19 @@ ni de las decisiones abiertas del PO.
 | `packages/ingest` | **Pipeline de seguridad completo**, con fixtures maliciosos reales |
 | `packages/billing` | **Matriz fiscal + validación de NIF/CIF/NIE**. Solo lógica pura |
 | `packages/quotas` | Límites de plan y comprobación previa a la subida |
+| `packages/db` | **Migraciones de cuentas, sitios y facturación**, verificadas contra PostgreSQL real |
 
-`pnpm test` → 196 tests en verde. `tsc --noEmit` limpio en los cinco paquetes.
+`pnpm test` → 282 tests en verde. `tsc --noEmit` limpio en los seis paquetes.
 
-**Lo que NO existe todavía, y a propósito:** `apps/web`, `apps/serve`, `packages/db`.
-Necesitan cuentas de Supabase, Cloudflare y Stripe que aún no hay, y las cuatro
-decisiones abiertas del PO (ver `docs/PLAN-DE-ENTREGA.md`, final).
+Los 41 tests de `packages/db` necesitan un PostgreSQL; si no lo hay, se **saltan con un
+aviso** en lugar de fallar. Arráncalo con `packages/db/scripts/start-test-db.sh`.
+
+**Lo que NO existe todavía, y a propósito:** `apps/web` y `apps/serve`. Necesitan
+cuentas de Supabase, Cloudflare y Stripe que aún no hay.
+
+**Decidido por el PO:** región **Fráncfort**; ofimática **como descarga con portada**;
+`.php` **rechazado con mensaje explícito**; dominios **con placeholders** hasta que se
+registren.
 
 **No implementes emisión de facturas, Stripe ni PDF** hasta que el PO valide la matriz
 fiscal con su asesoría. Es el punto de parada nº 2.
@@ -143,6 +150,9 @@ pnpm test           # Vitest. Genera los fixtures antes (pretest)
 pnpm fixtures       # Regenera los ZIP maliciosos de packages/ingest
 pnpm typecheck      # tsc --noEmit en todos los paquetes
 pnpm test packages/billing    # Solo la matriz fiscal (punto de parada nº 2)
+
+packages/db/scripts/start-test-db.sh   # PostgreSQL desechable para los tests de esquema
+pnpm test packages/db                  # RLS, numeración sin huecos, inmutabilidad
 ```
 
 Pendientes hasta que existan `apps/web` y `apps/serve`: `pnpm dev`, `pnpm test:e2e`,

@@ -12,29 +12,46 @@ hace falta que aciertes a la primera: pega, ejecuta, y te dice qué falta.
 
 ## Paso 0 — Abrir la red del entorno · **bloqueante**
 
-El entorno de Claude Code en el que trabajo tiene una política de red que **bloquea
-toda salida** salvo los registros de paquetes (npm, PyPI…). Comprobado: `api.cloudflare.com`,
-`supabase.com` y `api.stripe.com` no responden desde aquí.
+El entorno en el que trabajo tiene una política de red que **bloquea toda salida** salvo
+los registros de paquetes y GitHub. Comprobado: `api.cloudflare.com` responde
+`403 · Host not in allowlist`.
 
-Eso significa que, aunque me des los tokens, **no puedo llamar a esas APIs** hasta que
-cambies la política del entorno.
+Aunque me des los tokens, **no puedo llamar a esas APIs** hasta que cambies esto.
 
-Qué hacer: en la configuración del entorno de Claude Code, cambiar el acceso de red para
-permitir al menos estos destinos:
+### Dónde está
 
-```
-api.cloudflare.com
-*.supabase.co
-*.supabase.com
-api.stripe.com
-*.r2.cloudflarestorage.com
-```
+No hay página de ajustes ni URL directa, y por eso cuesta encontrarlo:
 
-La documentación de las políticas disponibles está en
-<https://code.claude.com/docs/en/claude-code-on-the-web>.
+1. En **claude.ai/code**, en la fila **justo encima del cuadro de mensaje**, hay un
+   **icono de nube con el nombre del entorno** (por defecto, `Default`). Púlsalo.
+2. **Pasa el ratón por encima del entorno** en la lista: aparece un **icono de ajustes**
+   a la derecha. Púlsalo. (Para uno nuevo: **Add cloud environment**.)
+3. En el diálogo, el campo **Network access** admite cuatro niveles: `None`, `Trusted`,
+   `Full` y `Custom`. Por defecto está en **Trusted**, que solo permite registros de
+   paquetes, GitHub y algunos SDK de nube.
+4. Cambia a **Custom** y rellena **Allowed domains**, uno por línea:
 
-> Si prefieres no abrir la red, la alternativa es que ejecutes tú los comandos en tu
-> máquina: yo te dejo los scripts escritos y tú los lanzas. Dímelo y preparo esa vía.
+   ```text
+   api.cloudflare.com
+   *.cloudflarestorage.com
+   *.supabase.co
+   *.supabase.com
+   api.stripe.com
+   ```
+
+5. **Marca «Also include default list of common package managers».** Sin esa casilla
+   solo se permite lo que hayas escrito, y `pnpm install` deja de funcionar.
+
+Un `*.` inicial cubre todos los subdominios. El tráfico de GitHub va por un proxy
+aparte y no depende de esta lista.
+
+> **Los cambios afectan a las sesiones nuevas.** Una sesión ya en marcha conserva la
+> política con la que arrancó.
+
+Documentación: <https://code.claude.com/docs/en/cloud-environments#access-levels>.
+
+> **Alternativa si prefieres no abrir la red:** yo dejo los scripts escritos y los
+> ejecutas tú en tu máquina. Dímelo y preparo esa vía.
 
 ---
 
@@ -117,11 +134,24 @@ aplicar las migraciones.
 
 Copia `.env.example` a `.env` y rellénalo. `.env` está en `.gitignore`: no se sube.
 
-Si prefieres no tener las claves en un archivo, ponlas como **variables de entorno del
-entorno de Claude Code** en su configuración. Es la vía recomendada para la
-`service_role` y para los tokens de Cloudflare.
+### Dónde NO ponerlas
 
-**No las pegues en el chat.**
+**No las metas en el campo «Environment variables» del entorno.** La documentación es
+explícita: los entornos en la nube **no tienen almacén de secretos** y *cualquiera que
+use el entorno puede leer los valores*.
+(<https://code.claude.com/docs/en/cloud-environments#set-environment-variables>)
+
+**Y no las pegues en el chat.**
+
+### Cómo reducir el riesgo
+
+No hay una opción perfecta, así que lo que hay es acotar y rotar:
+
+| Credencial | Qué hacer |
+|---|---|
+| Tokens de Cloudflare | Dales solo los permisos de la tabla del Paso 2, nada más. **Revócalos cuando terminemos el despliegue**: son desechables por diseño y crear otro cuesta un minuto |
+| `SUPABASE_SERVICE_ROLE_KEY` | Es la que de verdad duele: esquiva RLS por completo. Pégala en el `.env` de la sesión cuando haga falta —desaparece al reciclarse el contenedor— y **rótala en Supabase al acabar** |
+| `SUPABASE_ANON_KEY` | Es pública por diseño, va en el navegador. Sin cuidados especiales |
 
 ---
 
